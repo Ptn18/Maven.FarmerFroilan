@@ -2,7 +2,8 @@ package com.zipcodewilmington.froilansfarm;
 
 public class Tractor extends FarmVehicle {
     @Override
-    public void makeNoise() {
+    public String makeNoise() {
+        return null;
     }
 
     @Override
@@ -10,5 +11,5 @@ public class Tractor extends FarmVehicle {
         super.operate();
     }
 
-    void harvest(String produce){}
+    void harvest(Crop produce){}
 }

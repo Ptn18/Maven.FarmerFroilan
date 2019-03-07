@@ -1,13 +1,13 @@
 package com.zipcodewilmington.froilansfarm;
 
 public abstract class Animal implements Eater, Noisemaker {
-    @Override
-    public void eat(String food) {
+
+    public void eat(Edible food) {
 
     }
 
-    @Override
-    public void makeNoise() {
+    public String makeNoise() {
+        return null;
 
     }
 }

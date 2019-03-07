@@ -1,20 +1,21 @@
 package com.zipcodewilmington.froilansfarm;
 
-public class Pilot extends Person {
-    public void eat(String food) {
+public class Pilot extends Person implements Rider{
+    public void eat(Edible food) {
         System.out.println("Yum!");
     }
 
-    public void makeNoise() {
+    public String makeNoise() {
+        return null;
     }
 
-    public void mount(String vehicle) {
+    public void mount(Rideable transport) {
     }
 
     public void ride() {
 
     }
 
-    public void dismount(String vehicle) {
+    public void dismount(Rideable transport) {
     }
 }

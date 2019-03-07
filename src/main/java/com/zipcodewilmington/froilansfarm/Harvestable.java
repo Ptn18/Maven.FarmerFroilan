@@ -1,4 +1,4 @@
 package com.zipcodewilmington.froilansfarm;
 
-public class CropRow {
+public interface Harvestable {
 }

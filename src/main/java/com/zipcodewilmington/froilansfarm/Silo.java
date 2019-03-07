@@ -1,8 +1,8 @@
 package com.zipcodewilmington.froilansfarm;
 
 public class Silo extends Storehouse {
-    @Override
-    void store(String item) {
+
+    void store(Harvestable item) {
         super.store(item);
     }
 }
