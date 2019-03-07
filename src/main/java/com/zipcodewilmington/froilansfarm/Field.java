@@ -1,8 +1,8 @@
 package com.zipcodewilmington.froilansfarm;
 
 public class Field extends Storehouse {
-    @Override
-    void store(String item) {
+
+    void store(CropRow item) {
         super.store(item);
     }
 

@@ -1,8 +1,8 @@
 package com.zipcodewilmington.froilansfarm;
 
 public class ChickenCoop extends Storehouse {
-    @Override
-    void store(String item) {
+
+    void store(Chicken item) {
         super.store(item);
     }
 }

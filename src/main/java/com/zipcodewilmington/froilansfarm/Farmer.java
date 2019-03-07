@@ -1,25 +1,26 @@
 package com.zipcodewilmington.froilansfarm;
 
-public class Farmer extends Person implements Botanist {
-    public void eat(String food) {
+public class Farmer extends Person implements Botanist, Rider {
+    public void eat(Edible food) {
         System.out.println("Yum");
     }
 
-    @Override
-    public void mount(String vehicle) {
+
+    public void mount(Rideable transport) {
     }
 
-    @Override
+
     public void ride() {
     }
 
-    @Override
-    public void dismount(String vehicle) {
+
+    public void dismount(Rideable transport) {
 
     }
 
     @Override
-    public void makeNoise() {
+    public String makeNoise() {
+        return null;
 
     }
 

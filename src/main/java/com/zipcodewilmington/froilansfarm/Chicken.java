@@ -1,10 +1,11 @@
 package com.zipcodewilmington.froilansfarm;
 
 public class Chicken extends Animal implements Produce {
-    public void eat(String food) {
+    private boolean hasBeenFertilized;
+    public void eat(Edible food) {
         System.out.println("Yum!");
     }
 
-    public String yield(String produce) {
-        return "Yum!";}
+    public void yield() {
+        }
 }

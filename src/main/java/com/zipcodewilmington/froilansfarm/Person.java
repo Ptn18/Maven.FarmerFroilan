@@ -1,28 +1,14 @@
 package com.zipcodewilmington.froilansfarm;
 
-public abstract class Person implements Eater, Rider, Noisemaker {
+public abstract class Person extends Animal{
     @Override
-    public void eat(String food) {
+    public void eat(Edible food) {
 
     }
 
-    @Override
-    public void mount(String vehicle) {
-
-    }
 
     @Override
-    public void ride() {
-
-    }
-
-    @Override
-    public void dismount(String vehicle) {
-
-    }
-
-    @Override
-    public void makeNoise() {
-
+    public String makeNoise() {
+    return null;
     }
 }
