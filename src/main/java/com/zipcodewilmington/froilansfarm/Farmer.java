@@ -26,7 +26,8 @@ public class Farmer extends Person implements Botanist, Rider {
 
     }
 
-    public void harvest(CropRow rowNumber) {
+    public void storeCrop(Crop crop) {
 
     }
+
 }

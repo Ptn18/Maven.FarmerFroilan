@@ -1,4 +1,4 @@
 package com.zipcodewilmington.froilansfarm;
 
-public class FarmHouse extends Container {
+public class FarmHouse extends Container<Person> {
 }
