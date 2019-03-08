@@ -18,13 +18,16 @@ public class Farmer extends Person implements Botanist, Rider {
 
     }
 
-    @Override
     public String makeNoise() {
         return null;
+    }
+
+    public void plant(Crop crop, CropRow rowNumber) {
 
     }
 
-    public void plant(Crop crop) {
-        System.out.println("Planted!");
+    public void storeCrop(Crop crop) {
+
     }
+
 }

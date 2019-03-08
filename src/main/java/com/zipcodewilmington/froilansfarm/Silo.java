@@ -1,8 +1,4 @@
 package com.zipcodewilmington.froilansfarm;
 
-public class Silo extends Storehouse {
-
-    void store(Harvestable item) {
-        super.store(item);
-    }
+public class Silo extends Container<FarmProduct> {
 }

@@ -1,8 +1,4 @@
 package com.zipcodewilmington.froilansfarm;
 
-public class TomatoPlant extends Crop {
-    @Override
-    public void yield() {
-
-    }
+public class TomatoPlant extends Crop<Tomato> {
 }

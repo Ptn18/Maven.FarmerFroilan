@@ -18,4 +18,8 @@ public class Pilot extends Person implements Rider{
 
     public void dismount(Rideable transport) {
     }
+
+    public void fly(Aircraft aircraft) {
+
+    }
 }
