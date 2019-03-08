@@ -1,9 +1,9 @@
 package com.zipcodewilmington.froilansfarm;
 
-public class TobaccoPlant extends Crop {
+public class TobaccoPlant{
 
 
-    @Override
+
     public void yield() {
 
     }

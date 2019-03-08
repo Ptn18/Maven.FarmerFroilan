@@ -1,13 +1,28 @@
 package com.zipcodewilmington.froilansfarm;
 
-public abstract class Crop implements Produce {
-    private boolean hasBeenHarvested;
-    private boolean hasBeenFertilized;
+public class Crop<T extends Edible> implements Produce {
+
+    private T crop;
+
+    public Crop(T crop) {
+        this.crop = crop;
+    }
 
 
+
+    //required by Produce
     public void yield() {
 
     }
+
+    public boolean hasBeenFertilized() {
+        return true;
+    }
+
+
+
+
+    //    private boolean hasBeenHarvested;
 
 }
 

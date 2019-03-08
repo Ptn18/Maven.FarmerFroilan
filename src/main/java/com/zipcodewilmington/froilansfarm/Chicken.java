@@ -1,6 +1,6 @@
 package com.zipcodewilmington.froilansfarm;
 
-public class Chicken extends Animal implements Produce {
+public class Chicken extends Animal implements Produce, Livestock {
     private boolean hasBeenFertilized;
     public void eat(Edible food) {
         System.out.println("Yum!");
@@ -8,4 +8,8 @@ public class Chicken extends Animal implements Produce {
 
     public void yield() {
         }
+
+    public boolean hasBeenFertilized() {
+        return false;
+    }
 }

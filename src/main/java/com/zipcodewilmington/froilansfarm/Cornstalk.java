@@ -1,7 +1,7 @@
 package com.zipcodewilmington.froilansfarm;
 
-public class Cornstalk extends Crop {
-    @Override
+public class Cornstalk {
+
     public void yield() {
 
     }

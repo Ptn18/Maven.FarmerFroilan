@@ -1,8 +1,8 @@
 package com.zipcodewilmington.froilansfarm;
 
-public class Stable extends Storehouse {
+public class Stable {
 
-    void store(Horse item) {
-        super.store(item);
-    }
+//    void store(Horse item) {
+//        super.store(item);
+//    }
 }

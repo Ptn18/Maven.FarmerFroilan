@@ -1,10 +1,24 @@
 package com.zipcodewilmington.froilansfarm;
 
-public class Field extends Storehouse {
+import java.util.ArrayList;
 
-    void store(CropRow item) {
-        super.store(item);
+public class Field implements Structure {
+
+    private ArrayList<Crop> field;
+
+    public Field() {
+        this.field = new ArrayList<Crop>();
     }
 
-    private CropRow cropRow = new CropRow();
+    public void addCropRow(Crop crop) {
+        field.add(crop);
+    }
+
+
+
+//    void store(CropRow item) {
+//        super.store(item);
+//    }
+//
+//    private CropRow cropRow = new CropRow();
 }

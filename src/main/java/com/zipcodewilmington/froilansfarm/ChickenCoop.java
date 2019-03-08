@@ -1,8 +1,8 @@
 package com.zipcodewilmington.froilansfarm;
 
-public class ChickenCoop extends Storehouse {
+public class ChickenCoop {
 
-    void store(Chicken item) {
-        super.store(item);
-    }
+//    void store(Chicken item) {
+//        super.store(item);
+//    }
 }
