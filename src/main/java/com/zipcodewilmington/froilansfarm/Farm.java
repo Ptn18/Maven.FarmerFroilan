@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Farm {
-    List<Structure> structures;
+    List<Container> containers;
 
     public Farm() {
-        structures = new ArrayList<Structure>();
+        containers = new ArrayList<Container>();
     }
 
-    public void addStructure(Structure structure) {
+    public void addContainer(Container container) {
 
-        structures.add(structure);
+        containers.add(container);
     };
 
 }

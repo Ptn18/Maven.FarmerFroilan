@@ -3,14 +3,14 @@ package com.zipcodewilmington.froilansfarm;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Storehouse<TypeToBeStored> implements Structure {
+public class Container<TypeToBeStored> {
     private List<TypeToBeStored> items;
 
-    public Storehouse(List<TypeToBeStored> items) {
+    public Container(List<TypeToBeStored> items) {
         this.items = items;
     }
 
-    public Storehouse() {
+    public Container() {
         this(new ArrayList<TypeToBeStored>());
     }
 

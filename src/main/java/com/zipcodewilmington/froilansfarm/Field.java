@@ -2,7 +2,7 @@ package com.zipcodewilmington.froilansfarm;
 
 import java.util.ArrayList;
 
-public class Field implements Structure {
+public class Field {
 
     private ArrayList<Crop> field;
 

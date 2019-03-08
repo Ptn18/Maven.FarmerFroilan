@@ -1,6 +1,6 @@
 package com.zipcodewilmington.froilansfarm;
 
-public class Crop<T extends Edible> implements Produce {
+public class Crop<T extends Edible> implements Produce{
 
     private T crop;
 

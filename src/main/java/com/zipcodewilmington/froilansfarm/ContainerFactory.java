@@ -1,4 +1,8 @@
 package com.zipcodewilmington.froilansfarm;
 
-public interface Structure {
+public class ContainerFactory {
+
+
+
+
 }

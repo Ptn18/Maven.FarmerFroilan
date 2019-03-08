@@ -1,8 +1,4 @@
 package com.zipcodewilmington.froilansfarm;
 
-public class StorehouseFactory {
-
-
-
-
+public interface FarmProduct {
 }
