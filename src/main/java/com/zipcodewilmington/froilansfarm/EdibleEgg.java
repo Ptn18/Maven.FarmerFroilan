@@ -1,4 +1,4 @@
 package com.zipcodewilmington.froilansfarm;
 
-public class EdibleEgg implements Edible, FarmProduct {
+public class EdibleEgg implements Edible {
 }

@@ -1,4 +1,4 @@
 package com.zipcodewilmington.froilansfarm;
 
-public class Tobacco implements FarmProduct{
+public class Stable extends Container<Horse> {
 }

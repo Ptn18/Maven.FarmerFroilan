@@ -1,4 +1,4 @@
 package com.zipcodewilmington.froilansfarm;
 
-public interface FarmProducts {
+public class FarmHouse extends Container {
 }
