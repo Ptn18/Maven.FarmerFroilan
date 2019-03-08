@@ -1,4 +1,4 @@
 package com.zipcodewilmington.froilansfarm;
 
-public interface Harvestable {
+public class CornStalk extends Crop<EarCorn> {
 }
