@@ -13,13 +13,8 @@ public class TempContainerFactoryTest {
 
         //When
         Container coop = ContainerFactory.createContainer(toStore);
-        String expected = "class com.zipcodewilmington.froilansfarm.ChickenCoop";
-        String actual = coop.getClass().toString();
 
         //Then
-        Assert.assertEquals(expected, actual);
-
-
-
+        Assert.assertTrue(coop instanceof ChickenCoop);
     }
 }
