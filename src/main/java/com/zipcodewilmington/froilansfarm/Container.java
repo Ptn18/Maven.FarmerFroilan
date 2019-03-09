@@ -3,7 +3,7 @@ package com.zipcodewilmington.froilansfarm;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Container<TypeToBeStored> {
+public abstract class Container<TypeToBeStored> {
     private List<TypeToBeStored> items;
 
     public Container(List<TypeToBeStored> items) {
@@ -14,11 +14,15 @@ public class Container<TypeToBeStored> {
         this(new ArrayList<TypeToBeStored>());
     }
 
+    public List<TypeToBeStored> getItems() {
+        return items;
+    }
+
     public void store(TypeToBeStored item) {
         items.add(item);
     }
 
-    public TypeToBeStored get(Integer index) {
+    public TypeToBeStored getByIndex(Integer index) {
         return items.get(index);
     }
 
@@ -26,7 +30,7 @@ public class Container<TypeToBeStored> {
         items.remove(itemToBeRemoved);
     }
 
-    public Integer size() {
+    public Integer numberHolding() {
         return items.size();
     }
 }
