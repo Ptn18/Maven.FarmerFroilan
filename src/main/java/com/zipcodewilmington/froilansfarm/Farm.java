@@ -10,9 +10,13 @@ public class Farm {
         containers = new ArrayList<Container>();
     }
 
+    public List<Container> getContainers() {
+        return containers;
+    }
+
     public void addContainer(Container container) {
 
         containers.add(container);
-    };
+    }
 
 }

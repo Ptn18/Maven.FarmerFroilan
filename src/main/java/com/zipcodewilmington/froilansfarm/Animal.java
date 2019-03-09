@@ -1,6 +1,6 @@
 package com.zipcodewilmington.froilansfarm;
 
-public abstract class Animal implements Eater, Noisemaker {
+public abstract class Animal implements Noisemaker {
 
     public void eat(Edible food) {
 
