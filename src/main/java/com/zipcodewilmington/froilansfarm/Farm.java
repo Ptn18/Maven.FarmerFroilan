@@ -7,7 +7,7 @@ public class Farm {
     List<Container> containers;
 
     public Farm() {
-        containers = new ArrayList<Container>();
+        containers = new ArrayList<>();
     }
 
     public List<Container> getContainers() {
@@ -16,6 +16,11 @@ public class Farm {
 
     public void addContainer(Container container) {
 
+        containers.add(container);
+    }
+
+    public void createContainer(FarmItems itemsToStore) {
+        Container container = ContainerFactory.createContainer(itemsToStore);
         containers.add(container);
     }
 

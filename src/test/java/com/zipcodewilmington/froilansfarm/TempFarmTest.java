@@ -31,4 +31,18 @@ public class TempFarmTest {
         //Then
         Assert.assertEquals(expected, testFarm.getContainers().size());
     }
+
+    @Test
+    public void createContainerTest() {
+        //Given
+        Farm testFarm = new Farm();
+        FarmItems testItem = FarmItems.PERSON;
+
+        //When
+        testFarm.createContainer(testItem);
+        int expected = 1;
+
+        //Then
+        Assert.assertEquals(expected, testFarm.getContainers().size());
+    }
 }
