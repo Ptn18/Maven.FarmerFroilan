@@ -30,7 +30,7 @@ public class TempContainerTest {
     public void storeTest() {
         //Given
         Container<Person> house = new FarmHouse();
-        Person testPerson = new Farmer();
+        Person testPerson = new Farmer("Farmer Joe", 48, 2);
 
         //When
         house.store(testPerson);
@@ -44,8 +44,8 @@ public class TempContainerTest {
     public void getByIndexTest() {
         //Given
         Container<Person> house = new FarmHouse();
-        Person testPerson = new Farmer();
-        Person testPerson2 = new Pilot();
+        Person testPerson = new Farmer("Farmer Ted", 88, 4);
+        Person testPerson2 = new Pilot("Froilanda the Wonder Twin", 39, 2);
 
         //When
         house.store(testPerson);
@@ -60,8 +60,8 @@ public class TempContainerTest {
     public void removeTest() {
         //Given
         Container<Person> house = new FarmHouse();
-        Person testPerson = new Farmer();
-        Person testPerson2 = new Pilot();
+        Person testPerson = new Farmer("Farmer Joe", 49, 2);
+        Person testPerson2 = new Pilot("Froilanda", 39, 3);
 
         //When
         house.store(testPerson);
@@ -77,7 +77,7 @@ public class TempContainerTest {
     public void sizeTest() {
         //Given
         Container<Person> house = new FarmHouse();
-        Person testPerson = new Farmer();
+        Person testPerson = new Farmer("Farmer Joe", 49, 2);
 
         //When
         house.store(testPerson);
