@@ -9,17 +9,17 @@ public class ChickenTest {
     Silo silo = new Silo();
     Edible potato;
     
-    @Test
-    @Ignore
-    public void eatTest() {
-        //Given
-        Integer expectedInt = 0;
-        silo.storeEdible(potato);
-        //When
-        chicken.eat(potato);
-        //Then
-        Assert.assertEquals(expectedInt, silo.numberHolding());
-    }
+//    @Test
+//    @Ignore
+//    public void eatTest() {
+//        //Given
+//        Integer expectedInt = 0;
+//        silo.storeEdible(potato);
+//        //When
+//        chicken.eat(potato);
+//        //Then
+//        Assert.assertEquals(expectedInt, silo.numberHolding());
+//    }
     
     @Test
     public void makeNoiseTest() {

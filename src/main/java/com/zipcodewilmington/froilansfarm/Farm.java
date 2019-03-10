@@ -2,6 +2,7 @@ package com.zipcodewilmington.froilansfarm;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Supplier;
 
 public class Farm {
     private List<Container> containers;
@@ -48,6 +49,49 @@ public class Farm {
 
     public void addStables(List<Stable> stable) {
         this.stables = stables;
+    }
+
+
+    public void run(){
+        runMonday();
+
+
+    }
+
+    private void runMonday() {
+        feedAndRideHorse();
+        feedingHumans();
+        
+    }
+
+    public void feedAndRideHorse() {
+        for(int j = 0; j < stables.size(); j++){
+            Stable stable = stables.get(j);
+            List<Horse> horses = stable.getItems();
+            for(int i = 0; i < horses.size(); i++){
+                Horse horse = horses.get(i);
+                horse.setHasBeenRidden(true);
+                for(int k = 0; k <3; k++) {
+                    EarCorn earCorn = new EarCorn();
+                    horse.eat(earCorn);
+                }
+            }
+        }
+    }
+    public void feedingHumans(){
+        Farmer froilan = null;
+
+        feedHuman(froilan, EarCorn::new, 1);
+        feedHuman(froilan, Tomato::new, 2);
+        feedHuman(froilan, Tomato::new, 2);
+
+
+    }
+
+    public void feedHuman(Farmer person, Supplier<Edible> supplier, int amount){
+        for(int i = 0; i < amount; i++) {
+            person.eat(supplier.get());
+        }
     }
 }
 
