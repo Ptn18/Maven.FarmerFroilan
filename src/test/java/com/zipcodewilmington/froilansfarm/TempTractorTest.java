@@ -22,7 +22,7 @@ public class TempTractorTest {
     }
 
     @Test
-    public void harvestTest() {
+    public void harvestTest1() {
         //Given
         CropRow testRow = new CropRow();
         Crop testCornStalk = new Crop(Crop.Type.CORNSTALK);
@@ -37,5 +37,22 @@ public class TempTractorTest {
         Assert.assertTrue(actual instanceof EarCorn);
         Assert.assertFalse(testCornStalk.hasBeenFertilized());
         Assert.assertTrue(testCornStalk.isHarvested());
+    }
+
+    @Test
+    public void harvestTest2() {
+        //Given
+        CropRow testRow = new CropRow();
+        Crop testCornStalk = new Crop(Crop.Type.CORNSTALK);
+        testRow.store(testCornStalk);
+
+        //When
+        Tractor testTractor = new Tractor();
+        Edible actual = testTractor.harvest(testRow);
+
+        //Then
+        Assert.assertNull(actual);
+        Assert.assertFalse(testCornStalk.hasBeenFertilized());
+        Assert.assertFalse(testCornStalk.isHarvested());
     }
 }

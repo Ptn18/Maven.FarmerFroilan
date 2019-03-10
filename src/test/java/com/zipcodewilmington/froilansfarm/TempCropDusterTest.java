@@ -7,18 +7,18 @@ public class TempCropDusterTest {
 
     @Test
     public void constructorTest() {
-        Vehicle testTractor = new Tractor();
-        Assert.assertNotNull(testTractor);
+        Vehicle testPlane = new Cropduster();
+        Assert.assertNotNull(testPlane);
     }
 
     @Test
     public void makeNoiseTest() {
         //Given
-        Vehicle testTractor = new Tractor();
+        Vehicle testPlane = new Cropduster();
         String expected = "Putter putter rattle woosh";
 
         //When
-        String actual = testTractor.makeNoise();
+        String actual = testPlane.makeNoise();
     }
 
     @Test
