@@ -5,4 +5,10 @@ package com.zipcodewilmington.froilansfarm;
  */
 public class MainApplication {
 
+    public static void main(String[] args) {
+        Farm farm = FarmFactory.create();
+        farm.run();
+
+
+    }
 }
