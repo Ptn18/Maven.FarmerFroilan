@@ -6,17 +6,20 @@ public class Crop<CropType extends Edible> implements Produce{
     private boolean fertilized;
     private boolean harvested;
 
+
     public Crop() {
         this.type = Type.CORNSTALK;
     }
 
     public Crop(Type type) {
         this.type = type;
+        this.fertilized = false;
+        this.harvested = false;
     }
 
     //required by Produce
     public Edible yield() {
-        harvested = true;
+//        harvested = true;
         return EdibleFactory.create(type);
     }
 
@@ -26,15 +29,24 @@ public class Crop<CropType extends Edible> implements Produce{
 
 
     public void fertilized(){
-        this.fertilized = true;
+        fertilized = !fertilized;
+//        this.fertilized = true;
     }
 
     public boolean isHarvested(){
         return harvested;
     }
 
+    public void setHarvested(){
+        harvested = !harvested;
+    }
+
     public enum Type {
-        CORNSTALK, POTATO_PLANT, TOMATO_PLANT;
+        CORNSTALK, POTATO_PLANT, TOMATO_PLANT
+    }
+
+    public boolean checkHarvestability() {
+        return hasBeenFertilized() && !isHarvested();
     }
 
 }

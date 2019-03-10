@@ -33,6 +33,9 @@ public class ContainerFactory {
             case PERSON:
                 newContainer = new FarmHouse();
                 break;
+
+            case VEHICLE:
+                newContainer = new Barn();
         }
         return newContainer;
     }
