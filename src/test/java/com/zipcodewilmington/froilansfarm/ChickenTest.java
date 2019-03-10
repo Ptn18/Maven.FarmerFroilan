@@ -14,7 +14,7 @@ public class ChickenTest {
     public void eatTest() {
         //Given
         Integer expectedInt = 0;
-        silo.storeEdible(potato);
+        silo.store(potato);
         //When
         chicken.eat(potato);
         //Then
