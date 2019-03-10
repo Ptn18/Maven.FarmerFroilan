@@ -1,22 +1,29 @@
 package com.zipcodewilmington.froilansfarm;
 
-import java.util.function.Supplier;
-
 public class Farmer extends Person implements Botanist, Rider {
- 
+    
     private String name;
     private Integer age;
     private Integer id;
+    private Silo silo;
+    
+    public Farmer(){
+        name = "Froilan";
+        age = 40;
+        id = 1;
+    }
     
     public Farmer(String name, Integer age, Integer id) {
-        super(name, age, id);}
+        super(name, age, id);
+    }
     
     public void eat(Edible food) {
-        System.out.println("Yum");
+        silo.remove(food);
     }
     
     
     public void mount(Rideable transport) {
+    
     }
     
     
@@ -33,11 +40,15 @@ public class Farmer extends Person implements Botanist, Rider {
     }
     
     public void plant(Crop crop, CropRow rowNumber) {
-    
+        rowNumber.store(crop);
+        
     }
     
-    public void storeCrop(Crop crop) {
-    
+    public void storeEdible(Edible edible) {
+        silo.store(edible);
     }
     
+    public void setSilo(Silo silo) {
+        this.silo = silo;
+    }
 }

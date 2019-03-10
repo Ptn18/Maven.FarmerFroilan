@@ -4,6 +4,7 @@ public class Chicken extends Animal implements Produce {
     private String name;
     private Integer age;
     private Integer id;
+    Silo silo;
     boolean hasBeenFertilized;
     
     public Chicken(String name, Integer age, Integer id) {
@@ -17,7 +18,7 @@ public class Chicken extends Animal implements Produce {
     }
     
     public void eat(Edible food) {
-        System.out.println("Yum!");
+        silo.remove(food);
     }
     
     public EdibleEgg yield() {

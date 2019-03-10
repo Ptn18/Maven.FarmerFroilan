@@ -5,16 +5,23 @@ public class Pilot extends Person implements Rider{
     private String name;
     private Integer age;
     private Integer id;
+    Silo silo;
+    
+    public Pilot(){
+        name = "Froilanda";
+        age = 25;
+        id = 1;
+    }
     
     public Pilot(String name, Integer age, Integer id) {
         super(name, age, id);}
     
     public void eat(Edible food) {
-        System.out.println("Yum!");
+        silo.remove(food);
     }
 
     public String makeNoise() {
-        return null;
+        return "Weee!";
     }
 
     public void mount(Rideable transport) {
@@ -28,6 +35,5 @@ public class Pilot extends Person implements Rider{
     }
 
     public void fly(Aircraft aircraft) {
-
     }
 }

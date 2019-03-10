@@ -30,7 +30,7 @@ public class Farm {
         containers.add(container);
     }
 
-    public void addTracker(Tractor tractor) {
+    public void addTractor(Tractor tractor) {
         this.tractor = tractor;
     }
 
