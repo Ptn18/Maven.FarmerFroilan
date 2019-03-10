@@ -3,6 +3,8 @@ package com.zipcodewilmington.froilansfarm;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.List;
+
 public class TempFarmTest {
 
     @Test
@@ -44,5 +46,23 @@ public class TempFarmTest {
 
         //Then
         Assert.assertEquals(expected, testFarm.getContainers().size());
+    }
+
+    @Test
+    public void getSpecificContainersTest() {
+        //Given
+        Farm testFarm = new Farm();
+        testFarm.createContainer(FarmItems.PERSON);
+        testFarm.createContainer(FarmItems.CHICKEN);
+        testFarm.createContainer(FarmItems.HORSE);
+        testFarm.createContainer(FarmItems.CHICKEN);
+
+        //When
+        List<Container> chickenCoops = testFarm.getSpecificContainers(FarmItems.CHICKEN);
+        int expected = 2;
+        int actual = chickenCoops.size();
+
+        //Then
+        Assert.assertEquals(expected, actual);
     }
 }

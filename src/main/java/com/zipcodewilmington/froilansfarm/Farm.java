@@ -8,9 +8,8 @@ public class Farm {
     private List<Container> containers;
     private Tractor tractor;
     private Cropduster cropduster;
-    private Field field;
     private List<ChickenCoop> chickenCoops;
-    private List<Stable>stables;
+    private List<Stable> stables;
 
 
     public Farm() {
@@ -22,7 +21,6 @@ public class Farm {
     }
 
     public void addContainer(Container container) {
-
         containers.add(container);
     }
 
@@ -39,16 +37,25 @@ public class Farm {
         this.cropduster = cropduster;
     }
 
-    public void addField(Field field) {
-        this.field = field;
-    }
-
     public void addChickenCoop(List<ChickenCoop> coops) {
         this.chickenCoops = coops;
     }
 
     public void addStables(List<Stable> stable) {
         this.stables = stables;
+    }
+
+
+    public List<Container> getSpecificContainers(FarmItems typeToGet) {
+        List<Container> allContainers = this.getContainers();
+        List<Container> filteredContainerList = new ArrayList();
+        for (int i = 0; i <allContainers.size() ; i++) {
+            Container thisContainer = allContainers.get(i);
+            if(typeToGet == thisContainer.getContains()) {
+                filteredContainerList.add(thisContainer);
+            }
+        }
+        return filteredContainerList;
     }
 
 
@@ -93,5 +100,6 @@ public class Farm {
             person.eat(supplier.get());
         }
     }
+
 }
 

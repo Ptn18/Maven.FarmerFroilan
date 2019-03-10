@@ -87,4 +87,33 @@ public class TempContainerTest {
         //Then
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void setContainsTest() {
+        //Given
+        Container<Person> house = new FarmHouse();
+
+        //When
+        house.setContains(FarmItems.PERSON);
+
+        //Then
+        Assert.assertNotNull(house.getContains());
+
+    }
+
+    @Test
+    public void getContainsTest() {
+        //Given
+        Container<Person> house = new FarmHouse();
+        house.setContains(FarmItems.PERSON);
+
+        //When
+        FarmItems expected = FarmItems.PERSON;
+        FarmItems actual = house.getContains();
+
+        //Then
+        Assert.assertEquals(expected, actual);
+
+    }
+
 }

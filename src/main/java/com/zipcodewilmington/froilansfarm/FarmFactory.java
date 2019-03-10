@@ -2,55 +2,74 @@ package com.zipcodewilmington.froilansfarm;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
+import java.util.stream.Stream;
 
-import static com.zipcodewilmington.froilansfarm.AnimalFactory.AnimalType.*;
+import static com.zipcodewilmington.froilansfarm.AnimalFactory.AnimalType.FARMER;
+import static com.zipcodewilmington.froilansfarm.AnimalFactory.AnimalType.PILOT;
 
 public class FarmFactory {
-    
-    public static Farm create() {
-        Farm farm = new Farm();
-        
-        FarmHouse house = createFarmHouse();
-        farm.addContainer(house);
-        
-        List<ChickenCoop> coop = createChickenCoop();
-        farm.addChickenCoop(coop);
-        
-        List<Stable> stable = createStable();
-        farm.addStables(stable);
-        
-        Cropduster cropduster = new Cropduster();
-        Tractor tractor = new Tractor();
-        
-        farm.addTractor(tractor);
-        farm.addCropduster(cropduster);
-        
-        Field field = createField();
-        farm.addField(field);
-        
-        return farm;
+
+
+    public static Farm create(){
+        Farm farm =new Farm();
+
+        FarmItems[] containersToCreate = {
+                FarmItems.PERSON,
+                FarmItems.CROPROW,
+                FarmItems.CHICKEN,
+                FarmItems.CHICKEN,
+                FarmItems.CHICKEN,
+                FarmItems.CHICKEN,
+                FarmItems.HORSE,
+                FarmItems.HORSE,
+                FarmItems.HORSE,
+                FarmItems.VEHICLE,
+                FarmItems.EDIBLE
+        };
+
+        createContainers(farm, containersToCreate);
+
+
+//     FarmHouse house = createFarmHouse();
+//     farm.addContainer(house);
+//
+//     List<ChickenCoop> coop = createChickenCoop();
+//     farm.addChickenCoop(coop);
+//
+//     List<Stable> stable = createStable();
+//     farm.addStables(stable);
+
+     Cropduster cropduster = new Cropduster();
+     Tractor tractor = new Tractor();
+
+     farm.addTractor(tractor);
+     farm.addCropduster(cropduster);
+//
+//     Field field = createField();
+//     farm.addField(field);
+
+     return farm;
+
     }
     
-    private static Field createField() {
-        Field field = new Field();
-        
-        field.store(createCropRow(Crop.Type.CORNSTALK));
-        field.store(createCropRow(Crop.Type.TOMATO_PLANT));
-        field.store(createCropRow(Crop.Type.POTATO_PLANT));
-        field.store(createCropRow(Crop.Type.POTATO_PLANT));
-        field.store(createCropRow(Crop.Type.POTATO_PLANT));
-        
-        return field;
+    public static void plantField(Farm farm) {
+        List<Container> fields = farm.getSpecificContainers(FarmItems.CROPROW);
+
+        for (Container field: fields) {
+            field.store(createCropRow(Crop.Type.CORNSTALK));
+            field.store(createCropRow(Crop.Type.TOMATO_PLANT));
+            field.store(createCropRow(Crop.Type.POTATO_PLANT));
+            field.store(createCropRow(Crop.Type.POTATO_PLANT));
+            field.store(createCropRow(Crop.Type.POTATO_PLANT));
+        }
     }
     
     private static CropRow createCropRow(Crop.Type type) {
-        CropRow cropRow = new CropRow();
+        CropRow cropRow = (CropRow) ContainerFactory.createContainer(FarmItems.CROP);
         for (int i = 0; i < 10; i++) {
             Crop crop = new Crop(type);
             cropRow.store(crop);
         }
-        
         return cropRow;
     }
     
@@ -94,5 +113,21 @@ public class FarmFactory {
         }
         return coops;
     }
-    
+
+
+    //----------------
+
+    public static void createContainers(Farm farm, FarmItems[] containersToCreate) {
+        Stream<FarmItems> containerStream = Stream.of(containersToCreate);
+        containerStream.forEach(farm::createContainer);
+    }
+
+        //create vehicles
+
+        //populate coops
+    public static void populateChickenCoops(Farm farm) {
+
+
+    }
+
 }
