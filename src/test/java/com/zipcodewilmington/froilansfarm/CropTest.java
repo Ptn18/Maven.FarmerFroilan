@@ -51,7 +51,7 @@ public class CropTest {
         Crop crop = new Crop();
         Assert.assertFalse(crop.isHarvested());
         //When
-        crop.yield();
+        crop.setHarvested();
         //Then
         Assert.assertTrue(crop.isHarvested());
     }

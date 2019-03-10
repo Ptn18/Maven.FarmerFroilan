@@ -4,7 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Farm {
-    List<Container> containers;
+    private List<Container> containers;
+    private Tractor tractor;
+    private Cropduster cropduster;
+    private Field field;
+    private List<ChickenCoop> chickenCoops;
+    private List<Stable>stables;
+
 
     public Farm() {
         containers = new ArrayList<>();
@@ -24,4 +30,24 @@ public class Farm {
         containers.add(container);
     }
 
+    public void addTracker(Tractor tractor) {
+        this.tractor = tractor;
+    }
+
+    public void addCropduster(Cropduster cropduster) {
+        this.cropduster = cropduster;
+    }
+
+    public void addField(Field field) {
+        this.field = field;
+    }
+
+    public void addChickenCoop(List<ChickenCoop> coops) {
+        this.chickenCoops = coops;
+    }
+
+    public void addStables(List<Stable> stable) {
+        this.stables = stables;
+    }
 }
+
