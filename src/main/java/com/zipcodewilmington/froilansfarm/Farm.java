@@ -8,9 +8,8 @@ public class Farm {
     private List<Container> containers;
     private Tractor tractor;
     private Cropduster cropduster;
-    private Field field;
     private List<ChickenCoop> chickenCoops;
-    private List<Stable>stables;
+    private List<Stable> stables;
 
 
     public Farm() {
@@ -30,16 +29,12 @@ public class Farm {
         containers.add(container);
     }
 
-    public void addTracker(Tractor tractor) {
+    public void addTractor(Tractor tractor) {
         this.tractor = tractor;
     }
 
     public void addCropduster(Cropduster cropduster) {
         this.cropduster = cropduster;
-    }
-
-    public void addField(Field field) {
-        this.field = field;
     }
 
     public void addChickenCoop(List<ChickenCoop> coops) {
@@ -50,22 +45,18 @@ public class Farm {
         this.stables = stables;
     }
 
-//    public Stream<Container> getSpecificContainerTypes(FarmItems typeToGet) {
-//        Stream<Container> containerStream = this.getContainers().stream();
-//
-//
-//
-//        containerStream.forEach(farm::createContainer);
-//
-//        return this.getContainers()
-//                .stream()
-//                .filter()
-//    }
-//
-//
-//
-//    return Arrays
-//            .stream(stringArray)
-//            .filter(this::stringIsLongerThan4);
+
+    public List<Container> getSpecificContainers(FarmItems typeToGet) {
+        List<Container> allContainers = this.getContainers();
+        List<Container> filteredContainerList = new ArrayList();
+        for (int i = 0; i <allContainers.size() ; i++) {
+            Container thisContainer = allContainers.get(i);
+            if(typeToGet == thisContainer.getContains()) {
+                filteredContainerList.add(thisContainer);
+            }
+        }
+        return filteredContainerList;
+    }
+
 }
 

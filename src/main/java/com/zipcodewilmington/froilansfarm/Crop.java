@@ -41,6 +41,10 @@ public class Crop<CropType extends Edible> implements Produce{
         harvested = !harvested;
     }
 
+    public Type getType() {
+        return type;
+    }
+
     public enum Type {
         CORNSTALK, POTATO_PLANT, TOMATO_PLANT
     }

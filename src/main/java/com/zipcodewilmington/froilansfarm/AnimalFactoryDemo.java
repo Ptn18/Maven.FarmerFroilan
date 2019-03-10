@@ -18,7 +18,7 @@ public class AnimalFactoryDemo {
         AnimalFactory factory = AnimalFactory.createFactory(CHICKEN);
         
         AnimalFactoryDemo demo = new AnimalFactoryDemo(factory);
-        demo.makeThing("Mr Ed", 12, 2);
+        demo.create("Mr Ed", 12, 2);
         demo.speak("I'm Mr. Ed!");
         
         System.out.println(factory.toString());
@@ -27,7 +27,7 @@ public class AnimalFactoryDemo {
         
     }
     
-    private void makeThing(String name, Integer age, Integer id) {
+    void create(String name, Integer age, Integer id) {
         animalFactory.create(name, age, id);
         
     }

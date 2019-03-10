@@ -9,6 +9,12 @@ public abstract class Person extends Animal{
         super(name, age, id);
     }
     
+    public Person(){
+        name = "MacDonald";
+        age = 60;
+        id = 1;
+    }
+    
     @Override
     public void eat(Edible food) {
 

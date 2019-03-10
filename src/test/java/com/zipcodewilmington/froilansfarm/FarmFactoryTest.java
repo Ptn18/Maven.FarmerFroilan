@@ -3,6 +3,7 @@ package com.zipcodewilmington.froilansfarm;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 public class FarmFactoryTest {
@@ -34,6 +35,20 @@ public class FarmFactoryTest {
 
         //Then
         Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void plantFieldTest() {
+        //Given
+        Farm testFarm = new Farm();
+        testFarm.createContainer(FarmItems.CROPROW);
+
+        //When
+        FarmFactory.plantField(testFarm);
+        List<Container> fields = testFarm.getSpecificContainers(FarmItems.CROPROW);
+        Container testRow = fields.get(0);
+        Enum expected = Crop.Type.CORNSTALK;
+        Enum actual = testRow.getContains();
 
 
     }

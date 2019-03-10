@@ -6,19 +6,19 @@ import org.junit.Test;
 
 public class ChickenTest {
     Chicken chicken = new Chicken("Clucky Brewster", 2, 1);
-    //Container container = new Container();
-    private Edible food;
+    Silo silo = new Silo();
+    Edible potato;
     
     @Test
     @Ignore
     public void eatTest() {
         //Given
         Integer expectedInt = 0;
-        //container.store(food);
+        silo.store(potato);
         //When
-        chicken.eat(food);
+        chicken.eat(potato);
         //Then
-        //Assert.assertEquals(expectedInt, container.size());
+        Assert.assertEquals(expectedInt, silo.numberHolding());
     }
     
     @Test
