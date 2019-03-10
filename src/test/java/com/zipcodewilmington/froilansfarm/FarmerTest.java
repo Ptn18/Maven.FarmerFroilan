@@ -15,6 +15,7 @@ public class FarmerTest {
     Silo silo = new Silo();
     
     @Test
+    @Ignore
     public void eatTest() {
         //Given
         Integer expectedInt = 1;
