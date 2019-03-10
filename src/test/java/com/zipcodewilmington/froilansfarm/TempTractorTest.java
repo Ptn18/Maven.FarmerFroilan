@@ -27,7 +27,7 @@ public class TempTractorTest {
         CropRow testRow = new CropRow();
         Crop testCornStalk = new CornStalk();
         testRow.store(testCornStalk);
-        testCornStalk.setHasBeenFertilized();
+        testCornStalk.fertilized();
 
         //When
         Tractor testTractor = new Tractor();
@@ -43,7 +43,7 @@ public class TempTractorTest {
         CropRow testRow = new CropRow();
         Crop testCornStalk = new CornStalk();
         testRow.store(testCornStalk);
-        testCornStalk.setHasBeenFertilized();
+        testCornStalk.fertilized();
 
         //When
         Tractor testTractor = new Tractor();
@@ -51,7 +51,7 @@ public class TempTractorTest {
 
         //Then
         Assert.assertTrue(actual instanceof EarCorn);
-        Assert.assertFalse(testCornStalk.getHasBeenFertilized());
-        Assert.assertTrue(testCornStalk.getHasBeenHarvested());
+        Assert.assertFalse(testCornStalk.hasBeenFertilized());
+        Assert.assertTrue(testCornStalk.isHarvested());
     }
 }

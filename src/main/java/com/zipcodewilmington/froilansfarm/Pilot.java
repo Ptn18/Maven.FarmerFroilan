@@ -1,6 +1,14 @@
 package com.zipcodewilmington.froilansfarm;
 
 public class Pilot extends Person implements Rider{
+    
+    private String name;
+    private Integer age;
+    private Integer id;
+    
+    public Pilot(String name, Integer age, Integer id) {
+        super(name, age, id);}
+    
     public void eat(Edible food) {
         System.out.println("Yum!");
     }

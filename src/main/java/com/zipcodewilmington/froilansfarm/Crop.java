@@ -1,32 +1,52 @@
 package com.zipcodewilmington.froilansfarm;
 
-public abstract class Crop<CropType extends Edible> implements Produce{
+public class Crop<CropType extends Edible> implements Produce{
 
-    private CropType crop;
+    private Type type;
+    private boolean fertilized;
+    private boolean harvested;
 
+//    public Crop() {
+//    }
+
+    //for testing
     public Crop() {
+        this.type = Type.CORNSTALK;
     }
 
-    public Crop(CropType crop) {
-        this.crop = crop;
+    public Crop(Type type) {
+        this.type = type;
     }
-
-
 
     //required by Produce
     public Edible yield() {
-        return null;
+        setHarvested();
+        fertilized();
+//        fertilized = false;
+        return EdibleFactory.create(type);
     }
 
     public boolean hasBeenFertilized() {
-        return true;
+        return fertilized;
     }
 
 
+    public void fertilized(){
+        fertilized = !fertilized;
+//        this.fertilized = true;
+    }
 
+    public boolean isHarvested(){
+        return harvested;
+    }
 
-    //    private boolean hasBeenHarvested;
+    public void setHarvested(){
+        harvested = !harvested;
+    }
+
+    public enum Type {
+        CORNSTALK, POTATO_PLANT, TOMATO_PLANT
+    }
 
 }
 
-//Should be a generic?

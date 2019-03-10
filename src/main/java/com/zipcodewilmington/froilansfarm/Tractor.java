@@ -12,8 +12,8 @@ public class Tractor extends FarmVehicle implements Rideable {
 
 // this belongs on crop
     public boolean checkHarvestability(Crop crop) {
-        boolean hasBeenFertilized = crop.getHasBeenFertilized();
-        boolean canHarvest = !(crop.getHasBeenHarvested());
+        boolean hasBeenFertilized = crop.hasBeenFertilized();
+        boolean canHarvest = !(crop.isHarvested());
         return hasBeenFertilized && canHarvest;
     }
 
@@ -22,8 +22,8 @@ public class Tractor extends FarmVehicle implements Rideable {
         Crop thisCrop = rowNumber.getByIndex(0);
         Edible thisEdible = thisCrop.yield();
         rowNumber.remove(thisCrop);
-        thisCrop.setHasBeenHarvested();
-        thisCrop.setHasBeenFertilized();
+        thisCrop.setHarvested();
+        thisCrop.fertilized();
         return thisEdible;
     }
 
