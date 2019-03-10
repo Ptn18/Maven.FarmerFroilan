@@ -25,13 +25,13 @@ public class TempTractorTest {
     public void checkHarvestabilityTest() {
         //Given
         CropRow testRow = new CropRow();
-        Crop testCornStalk = new CornStalk();
-        testRow.store(testCornStalk);
-        testCornStalk.fertilized();
+        Crop testTomatoPlant = new Crop(Crop.Type.TOMATO_PLANT);
+        testRow.store(testTomatoPlant);
+        testTomatoPlant.fertilized();
 
         //When
         Tractor testTractor = new Tractor();
-        Boolean actual = testTractor.checkHarvestability(testCornStalk);
+        Boolean actual = testTractor.checkHarvestability(testTomatoPlant);
 
         //Then
         Assert.assertTrue(actual);
@@ -41,7 +41,7 @@ public class TempTractorTest {
     public void harvestTest() {
         //Given
         CropRow testRow = new CropRow();
-        Crop testCornStalk = new CornStalk();
+        Crop testCornStalk = new Crop(Crop.Type.CORNSTALK);
         testRow.store(testCornStalk);
         testCornStalk.fertilized();
 

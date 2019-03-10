@@ -6,23 +6,20 @@ public class Crop<CropType extends Edible> implements Produce{
     private boolean fertilized;
     private boolean harvested;
 
-//    public Crop() {
-//    }
 
-    //for testing
     public Crop() {
         this.type = Type.CORNSTALK;
     }
 
     public Crop(Type type) {
         this.type = type;
+        this.fertilized = false;
+        this.harvested = false;
     }
 
     //required by Produce
     public Edible yield() {
-        setHarvested();
-        fertilized();
-//        fertilized = false;
+//        harvested = true;
         return EdibleFactory.create(type);
     }
 
