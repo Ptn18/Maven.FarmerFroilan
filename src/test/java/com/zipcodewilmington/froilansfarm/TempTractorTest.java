@@ -20,22 +20,6 @@ public class TempTractorTest {
         //When
         String actual = testTractor.makeNoise();
     }
-//This belongs on crop
-    @Test
-    public void checkHarvestabilityTest() {
-        //Given
-        CropRow testRow = new CropRow();
-        Crop testTomatoPlant = new Crop(Crop.Type.TOMATO_PLANT);
-        testRow.store(testTomatoPlant);
-        testTomatoPlant.fertilized();
-
-        //When
-        Tractor testTractor = new Tractor();
-        Boolean actual = testTractor.checkHarvestability(testTomatoPlant);
-
-        //Then
-        Assert.assertTrue(actual);
-    }
 
     @Test
     public void harvestTest() {

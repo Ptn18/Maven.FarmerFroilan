@@ -45,5 +45,9 @@ public class Crop<CropType extends Edible> implements Produce{
         CORNSTALK, POTATO_PLANT, TOMATO_PLANT
     }
 
+    public boolean checkHarvestability() {
+        return hasBeenFertilized() && !isHarvested();
+    }
+
 }
 

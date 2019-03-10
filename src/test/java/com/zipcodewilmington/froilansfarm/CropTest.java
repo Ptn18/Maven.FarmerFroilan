@@ -56,5 +56,43 @@ public class CropTest {
         Assert.assertTrue(crop.isHarvested());
     }
 
+    @Test
+    public void checkHarvestabilityTest1() {
+        //Given
+        Crop testPlant = new Crop(Crop.Type.TOMATO_PLANT);
+
+        //When
+        Boolean actual = testPlant.checkHarvestability();
+
+        //Then
+        Assert.assertFalse(actual);
+    }
+
+    @Test
+    public void checkHarvestabilityTest2() {
+        //Given
+        Crop testPlant = new Crop(Crop.Type.TOMATO_PLANT);
+        testPlant.fertilized();
+
+        //When
+        Boolean actual = testPlant.checkHarvestability();
+
+        //Then
+        Assert.assertTrue(actual);
+    }
+
+    @Test
+    public void checkHarvestabilityTest3() {
+        //Given
+        Crop testPlant = new Crop(Crop.Type.TOMATO_PLANT);
+        testPlant.fertilized();
+        testPlant.setHarvested();
+
+        //When
+        Boolean actual = testPlant.checkHarvestability();
+
+        //Then
+        Assert.assertFalse(actual);
+    }
 
 }
