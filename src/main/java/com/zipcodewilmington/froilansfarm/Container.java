@@ -4,14 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Container<TypeToBeStored> {
+    private FarmItems contains;
+
     private List<TypeToBeStored> items;
 
     public Container(List<TypeToBeStored> items) {
         this.items = items;
+        this.contains = null;
     }
 
     public Container() {
-        this(new ArrayList<TypeToBeStored>());
+        this(new ArrayList<>());
     }
 
     public List<TypeToBeStored> getItems() {
@@ -32,5 +35,13 @@ public abstract class Container<TypeToBeStored> {
 
     public Integer numberHolding() {
         return items.size();
+    }
+
+    public FarmItems getContains() {
+        return contains;
+    }
+
+    public void setContains(FarmItems contains) {
+        this.contains = contains;
     }
 }

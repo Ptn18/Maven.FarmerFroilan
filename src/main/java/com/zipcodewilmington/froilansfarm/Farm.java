@@ -2,6 +2,7 @@ package com.zipcodewilmington.froilansfarm;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Farm {
     private List<Container> containers;
@@ -48,5 +49,23 @@ public class Farm {
     public void addStables(List<Stable> stable) {
         this.stables = stables;
     }
+
+//    public Stream<Container> getSpecificContainerTypes(FarmItems typeToGet) {
+//        Stream<Container> containerStream = this.getContainers().stream();
+//
+//
+//
+//        containerStream.forEach(farm::createContainer);
+//
+//        return this.getContainers()
+//                .stream()
+//                .filter()
+//    }
+//
+//
+//
+//    return Arrays
+//            .stream(stringArray)
+//            .filter(this::stringIsLongerThan4);
 }
 

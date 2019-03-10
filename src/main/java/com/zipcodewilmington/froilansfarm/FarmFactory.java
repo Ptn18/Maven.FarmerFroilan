@@ -2,29 +2,48 @@ package com.zipcodewilmington.froilansfarm;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class FarmFactory {
 
+
     public static Farm create(){
-     Farm farm =new Farm();
+        Farm farm =new Farm();
 
-     FarmHouse house = createFarmHouse();
-     farm.addContainer(house);
+        FarmItems[] containersToCreate = {
+                FarmItems.PERSON,
+                FarmItems.CROPROW,
+                FarmItems.CHICKEN,
+                FarmItems.CHICKEN,
+                FarmItems.CHICKEN,
+                FarmItems.CHICKEN,
+                FarmItems.HORSE,
+                FarmItems.HORSE,
+                FarmItems.HORSE,
+                FarmItems.VEHICLE,
+                FarmItems.EDIBLE
+        };
 
-     List<ChickenCoop> coop = createChickenCoop();
-     farm.addChickenCoop(coop);
+        createContainers(farm, containersToCreate);
 
-     List<Stable> stable = createStable();
-     farm.addStables(stable);
+
+//     FarmHouse house = createFarmHouse();
+//     farm.addContainer(house);
+//
+//     List<ChickenCoop> coop = createChickenCoop();
+//     farm.addChickenCoop(coop);
+//
+//     List<Stable> stable = createStable();
+//     farm.addStables(stable);
 
      Cropduster cropduster = new Cropduster();
      Tractor tractor = new Tractor();
 
      farm.addTracker(tractor);
      farm.addCropduster(cropduster);
-
-     Field field = createField();
-     farm.addField(field);
+//
+//     Field field = createField();
+//     farm.addField(field);
 
      return farm;
     }
@@ -87,5 +106,22 @@ public class FarmFactory {
         }
         return coops;
     }
+
+
+    //----------------
+
+    public static void createContainers(Farm farm, FarmItems[] containersToCreate) {
+        Stream<FarmItems> containerStream = Stream.of(containersToCreate);
+        containerStream.forEach(farm::createContainer);
+    }
+
+        //create vehicles
+
+        //populate coops
+    public static void populateChickenCoops(Farm farm) {
+
+
+    }
+
 
 }

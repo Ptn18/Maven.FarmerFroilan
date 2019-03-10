@@ -16,6 +16,7 @@ public class TempContainerFactoryTest {
 
         //Then
         Assert.assertTrue(coop instanceof ChickenCoop);
+        Assert.assertEquals(FarmItems.CHICKEN, coop.getContains());
     }
 
     @Test
@@ -29,6 +30,7 @@ public class TempContainerFactoryTest {
 
         //Then
         Assert.assertTrue(coop instanceof Stable);
+        Assert.assertEquals(FarmItems.HORSE, coop.getContains());
     }
 
     @Test
@@ -42,6 +44,7 @@ public class TempContainerFactoryTest {
 
         //Then
         Assert.assertTrue(coop instanceof FarmHouse);
+        Assert.assertEquals(FarmItems.PERSON, coop.getContains());
     }
 
     @Test
@@ -55,6 +58,7 @@ public class TempContainerFactoryTest {
 
         //Then
         Assert.assertTrue(coop instanceof CropRow);
+        Assert.assertEquals(FarmItems.CROP, coop.getContains());
     }
 
     @Test
@@ -68,6 +72,7 @@ public class TempContainerFactoryTest {
 
         //Then
         Assert.assertTrue(coop instanceof Field);
+        Assert.assertEquals(FarmItems.CROPROW, coop.getContains());
     }
 
     @Test
@@ -81,6 +86,7 @@ public class TempContainerFactoryTest {
 
         //Then
         Assert.assertTrue(coop instanceof Barn);
+        Assert.assertEquals(FarmItems.VEHICLE, coop.getContains());
     }
 
     @Test
@@ -94,5 +100,6 @@ public class TempContainerFactoryTest {
 
         //Then
         Assert.assertTrue(coop instanceof Silo);
+        Assert.assertEquals(FarmItems.EDIBLE, coop.getContains());
     }
 }
