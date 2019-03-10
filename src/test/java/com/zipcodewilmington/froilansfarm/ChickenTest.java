@@ -9,6 +9,7 @@ public class ChickenTest {
     Silo silo = new Silo();
     Edible potato;
     
+
     @Test
     @Ignore
     public void eatTest() {

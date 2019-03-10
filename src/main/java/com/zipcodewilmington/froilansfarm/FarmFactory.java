@@ -71,9 +71,9 @@ public class FarmFactory {
     
     private static List<Stable> createStable() {
         List<Stable> stables = new ArrayList<>();
-        for (int j = 0; j < 4; j++) {
+        for (int j = 0; j < 3; j++) {
             Stable stable = new Stable();
-            for (int i = 0; i < 9; i++) {
+            for (int i = 0; i < 4; i++) {
                 Horse horse = new Horse("Maximus" + i, 3, 1 + i);
                 stable.store(horse);
             }
