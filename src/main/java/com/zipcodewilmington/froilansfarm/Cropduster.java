@@ -6,10 +6,13 @@ public class Cropduster extends FarmVehicle implements Aircraft{
         return "Putter putter rattle woosh";
     }
 
-    public void fertilize(CropRow rowNumber) {
-        Crop thisCrop = rowNumber.getByIndex(0);
-        if(!thisCrop.hasBeenFertilized()) {
-            thisCrop.fertilized();}
+    public Integer fertilize(Crop crop) {
+        Integer numberFertilized = 0;
+        if(!crop.hasBeenFertilized()) {
+            crop.fertilized();
+            numberFertilized ++;
+        }
+        return numberFertilized;
     }
 
 }
