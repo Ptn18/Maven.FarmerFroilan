@@ -91,8 +91,6 @@ public class Farm {
         feedHuman(froilan, EarCorn::new, 1);
         feedHuman(froilan, Tomato::new, 2);
         feedHuman(froilan, Tomato::new, 2);
-
-
     }
 
     public void feedHuman(Farmer person, Supplier<Edible> supplier, int amount){
