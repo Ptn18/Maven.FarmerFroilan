@@ -7,27 +7,7 @@ public class WeeklyRoutineUtilities {
 
 
 
-    public static Integer fertilizeField(Cropduster cropduster, Field field) {
-        Integer cropsFertilized = 0;
-        List<CropRow> cropRows = field.getItems();
-        for (int i = 0; i < field.numberHolding() ; i++) {
-            CropRow rowToFertilize = cropRows.get(i);
-            cropsFertilized += fertilizeCrops(cropduster, rowToFertilize);
-        }
 
-        return cropsFertilized;
-    }
-
-    private static Integer fertilizeCrops(Cropduster cropduster, CropRow rowToFertilize) {
-        Integer cropsFertilized = 0;
-        List<Crop> crops = rowToFertilize.getItems();
-        for (int i = 0; i < crops.size() ; i++) {
-            Crop cropToFertilize = crops.get(i);
-            cropsFertilized = cropduster.fertilize(cropToFertilize);;
-        }
-
-        return cropsFertilized;
-    }
 
 
 
