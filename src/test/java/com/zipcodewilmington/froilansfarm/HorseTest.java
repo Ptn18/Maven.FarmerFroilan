@@ -4,28 +4,25 @@ import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class HorseTest {
     Horse horse = new Horse("Harry Trotter", 10, 5);
-    //Container container = new Container();
-    private Edible food;
+    Edible potato;
+    Silo silo = new Silo();
     
     @Test
-    @Ignore
-    public void eatTest(){
+    public void eatTest() {
         //Given
         Integer expectedInt = 0;
-        //container.store(food);
+        horse.setSilo(silo);
+        silo.store(potato);
         //When
-        horse.eat(food);
+        horse.eat(potato);
         //Then
-        //Assert.assertEquals(expectedInt, container.size());
+        Assert.assertEquals(expectedInt, silo.numberHolding());
     }
     
     @Test
-    public void makeNoiseTest(){
+    public void makeNoiseTest() {
         //Given
         String expectedString = "Neigh!";
         //When
@@ -35,7 +32,7 @@ public class HorseTest {
     }
     
     @Test
-    public void instanceOfAnimalTest(){
+    public void instanceOfAnimalTest() {
         //Given
         boolean actualBoolean = horse instanceof Animal;
         //When
@@ -44,7 +41,7 @@ public class HorseTest {
     }
     
     @Test
-    public void getHasBeenRiddenTest(){
+    public void getHasBeenRiddenTest() {
         //Given
         horse.setHasBeenRidden(true);
         // When
@@ -54,7 +51,7 @@ public class HorseTest {
     }
     
     @Test
-    public void setHasBeenRiddenTest(){
+    public void setHasBeenRiddenTest() {
         //Given
         boolean expectedBoolean = false;
         //When

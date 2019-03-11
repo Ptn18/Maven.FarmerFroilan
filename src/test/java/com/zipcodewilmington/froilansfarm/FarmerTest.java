@@ -4,22 +4,17 @@ import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import static com.zipcodewilmington.froilansfarm.Crop.Type.POTATO_PLANT;
-
 public class FarmerTest {
     Farmer farmer = new Farmer("Farmer Joe", 49, 2);
-    Horse horse = new Horse("Harry Trotter", 20, 3);
-    Crop crop;
     CropRow cropRow1 = new CropRow();
     Stable stable = new Stable();
     Silo silo = new Silo();
     Barn barn = new Barn();
     
     @Test
-    @Ignore
     public void eatTest() {
         //Given
-        Integer expectedInt = 1;
+        Integer expectedInt = 0;
         PotatoPlant potatoPlant = new PotatoPlant();
         potatoPlant.fertilized();
         Edible potato = potatoPlant.yield();
@@ -95,8 +90,11 @@ public class FarmerTest {
     @Test
     public void makeNoiseTest() {
         //Given
+        String expectedString = "Hmmm";
         //When
+        String actualString = farmer.makeNoise();
         //Then
+        Assert.assertEquals(expectedString, actualString);
     }
     
     @Test

@@ -11,10 +11,10 @@ public class ChickenTest {
     
 
     @Test
-    @Ignore
     public void eatTest() {
         //Given
         Integer expectedInt = 0;
+        chicken.setSilo(silo);
         silo.store(potato);
         //When
         chicken.eat(potato);

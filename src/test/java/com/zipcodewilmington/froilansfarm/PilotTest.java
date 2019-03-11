@@ -14,14 +14,15 @@ public class PilotTest {
     Potato potato;
     
     @Test
-    @Ignore
     public void eatTest() {
         //Given
-        //Integer expectedInt = 1;
+        Integer expectedInt = 0;
+        pilot.setSilo(silo);
+        silo.store(potato);
         //When
-        //pilot.eat(potato);
+        pilot.eat(potato);
         //Then
-        //Assert.assertEquals(expectedInt, silo.numberHolding());
+        Assert.assertEquals(expectedInt, silo.numberHolding());
     }
     
     @Test
@@ -68,7 +69,7 @@ public class PilotTest {
     }
     
     @Test
-    public void flyTest(){
+    public void flyTest() {
         //Given
         Cropduster cropduster = new Cropduster();
         String expectedString = "I'm cropdustin'!";
