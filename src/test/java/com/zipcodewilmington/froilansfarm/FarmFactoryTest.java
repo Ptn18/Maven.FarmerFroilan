@@ -57,6 +57,7 @@ public class FarmFactoryTest {
         //Given
         Farm testFarm = new Farm();
         testFarm.createContainer(FarmItems.CROPROW);
+        List<Container> fieldsBefore = testFarm.getSpecificContainers(FarmItems.CROPROW);
 
         //When
         FarmFactory.plantField(testFarm);

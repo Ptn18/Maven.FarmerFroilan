@@ -22,37 +22,50 @@ public class TempTractorTest {
     }
 
     @Test
-    public void harvestTest1() {
+    public void getTractor() {
         //Given
-        CropRow testRow = new CropRow();
-        Crop testCornStalk = new Crop(Crop.Type.CORNSTALK);
-        testRow.store(testCornStalk);
-        testCornStalk.fertilized();
+        Farm farm = new Farm();
+        Tractor tractor = new Tractor();
+        farm.createContainer(FarmItems.VEHICLE);
+        Container barn = farm.getSpecificContainers(FarmItems.VEHICLE).get(0);
+        barn.store(tractor);
 
         //When
-        Tractor testTractor = new Tractor();
-        Edible actual = testTractor.harvest(testRow);
+        Assert.assertTrue(tractor == Tractor.getTractor(farm));
 
-        //Then
-        Assert.assertTrue(actual instanceof EarCorn);
-        Assert.assertFalse(testCornStalk.hasBeenFertilized());
-        Assert.assertTrue(testCornStalk.isHarvested());
     }
 
     @Test
-    public void harvestTest2() {
+    public void operateTest() {
         //Given
-        CropRow testRow = new CropRow();
-        Crop testCornStalk = new Crop(Crop.Type.CORNSTALK);
-        testRow.store(testCornStalk);
+        Farm farm = new Farm();
+        farm.createContainer(FarmItems.CROPROW);
+        FarmFactory.plantField(farm);
+        Tractor tractor = new Tractor();
 
         //When
-        Tractor testTractor = new Tractor();
-        Edible actual = testTractor.harvest(testRow);
+        tractor.operate(farm);
+        Integer actual = 50;
+        Integer expected = 50;
 
         //Then
-        Assert.assertNull(actual);
-        Assert.assertFalse(testCornStalk.hasBeenFertilized());
-        Assert.assertFalse(testCornStalk.isHarvested());
+        Assert.assertEquals(expected, actual);
     }
+
+//    @Test
+//    public void harvestTest() {
+//        //Given
+//        CropRow testRow = new CropRow();
+//        Crop testCornStalk = new Crop(Crop.Type.CORNSTALK);
+//        testRow.store(testCornStalk);
+//
+//        //When
+//        Tractor testTractor = new Tractor();
+//        Crop[] actual = testTractor.harvest(testRow);
+//
+//        //Then
+//        Assert.assertNull(actual);
+//        Assert.assertFalse(testCornStalk.hasBeenFertilized());
+//        Assert.assertFalse(testCornStalk.isHarvested());
+//    }
 }
