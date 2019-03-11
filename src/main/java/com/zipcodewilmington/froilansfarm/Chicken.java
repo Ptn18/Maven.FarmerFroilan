@@ -22,7 +22,7 @@ public class Chicken extends Animal implements Produce {
     }
     
     public EdibleEgg yield() {
-        return null;
+        return new EdibleEgg();
     }
     
     public String makeNoise() {

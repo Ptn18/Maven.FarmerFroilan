@@ -23,20 +23,18 @@ public class Farmer extends Person implements Botanist, Rider {
         silo.remove(food);
     }
     
-    
     public void mount(Rideable transport) {
         if (transport instanceof Animal) {
+            setStable(stable);
             stable.remove((Horse) transport);
         } else if (transport instanceof FarmVehicle) {
             barn.remove((FarmVehicle) transport);
         }
     }
     
-    
-    public void ride() {
+   /* public void ride() {
         System.out.println("We're ridin' along!");
-    }
-    
+    }*/
     
     public void dismount(Rideable transport) {
         if (transport instanceof Animal) {
@@ -60,30 +58,6 @@ public class Farmer extends Person implements Botanist, Rider {
     
     public void setStable(Stable stable) {
         this.stable = stable;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public Integer getAge() {
-        return age;
-    }
-    
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-    
-    public Integer getId() {
-        return id;
-    }
-    
-    public void setId(Integer id) {
-        this.id = id;
     }
     
     public Silo getSilo() {

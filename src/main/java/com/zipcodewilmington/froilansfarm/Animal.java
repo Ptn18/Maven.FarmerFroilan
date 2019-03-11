@@ -17,31 +17,10 @@ public abstract class Animal implements AnimalFactory, Noisemaker {
     }
     
     public void eat(Edible food) {
-    
     }
     
     public String makeNoise() {
         return "Zzz";
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public Integer getAge() {
-        return age;
-    }
-    
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-    
-    public Integer getId() {
-        return id;
     }
     
     public void create(String name, Integer age, Integer id) {

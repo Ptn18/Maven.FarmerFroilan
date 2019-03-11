@@ -23,6 +23,25 @@ public class ChickenTest {
     }
     
     @Test
+    public void yieldTest(){
+        //Given
+        //When
+        Edible actual = chicken.yield();
+        //Then
+        Assert.assertNotNull(actual);
+    }
+    
+    @Test
+    public void yieldTest2(){
+        //Given
+        Edible edibleEgg = new EdibleEgg();
+        //When
+        Edible actual = chicken.yield();
+        Assert.assertTrue(actual instanceof EdibleEgg);
+        //Then
+    }
+    
+    @Test
     public void makeNoiseTest() {
         //Given
         String expectedString = "Cluck!";

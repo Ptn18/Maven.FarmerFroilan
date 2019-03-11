@@ -13,6 +13,7 @@ public class FarmerTest {
     CropRow cropRow1 = new CropRow();
     Stable stable = new Stable();
     Silo silo = new Silo();
+    Barn barn = new Barn();
     
     @Test
     @Ignore
@@ -31,33 +32,63 @@ public class FarmerTest {
     }
     
     @Test
-    public void mountTest() {
+    public void mountHorseTest() {
         //Given
+        Horse horse = new Horse("A", 1, 2);
         Integer expectedInteger = 0;
-        //When
+        farmer.setStable(stable);
         stable.store(horse);
-        stable.remove(horse);
+        //When
+        farmer.mount(horse);
         //Then
         Assert.assertEquals(expectedInteger, stable.numberHolding());
     }
     
     @Test
+    public void mountTractorTest() {
+        //Given
+        FarmVehicle tractor = new Tractor();
+        Integer expectedInteger = 0;
+        farmer.setBarn(barn);
+        barn.store(tractor);
+        //When
+        farmer.mount(tractor);
+        //Then
+        Assert.assertEquals(expectedInteger, barn.numberHolding());
+    }
+    
+   /* @Test
     public void rideTest() {
         //Given
         horse.setHasBeenRidden(true);
         //When
         //Then
         Assert.assertTrue(horse.getHasBeenRidden());
+    }*/
+    
+    @Test
+    public void dismountHorseTest() {
+        //Given
+        Horse horse = new Horse("A", 1, 2);
+        Integer expectedInteger = 1;
+        farmer.setStable(stable);
+        //When
+        farmer.dismount(horse);
+        //Then
+        Assert.assertEquals(expectedInteger, stable.numberHolding());
+        
     }
     
     @Test
-    public void dismountTest() {
+    public void dismountTractorTest() {
         //Given
+        FarmVehicle tractor = new Tractor();
         Integer expectedInteger = 1;
+        farmer.setBarn(barn);
         //When
-        stable.store(horse);
+        farmer.dismount(tractor);
         //Then
-        Assert.assertEquals(expectedInteger, stable.numberHolding());
+        Assert.assertEquals(expectedInteger, barn.numberHolding());
         
     }
     
