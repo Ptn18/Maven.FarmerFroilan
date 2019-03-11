@@ -28,7 +28,8 @@ public class WeeklyRoutineTest {
 
     @Test
     public void sundayTest() {
-        WeeklyRoutineUtilities.dailyRoutine();
+//        WeeklyRoutineUtilities.dailyRoutine();
+
         FarmFactory.plantField(froilanFarm);
 
         //Assert horses ridden = 10
@@ -50,8 +51,8 @@ public class WeeklyRoutineTest {
 
     @Test
     public void mondayTest() {
-        WeeklyRoutineUtilities.dailyRoutine();
-        WeeklyRoutineUtilities.fertilizeField(, )
+//        WeeklyRoutineUtilities.dailyRoutine();
+//        WeeklyRoutineUtilities.fertilizeField(, )
 
 
 
@@ -61,8 +62,8 @@ public class WeeklyRoutineTest {
 
     @Test
     public void tuesdayTest() {
-        WeeklyRoutineUtilities.dailyRoutine();
-        WeeklyRoutineUtilities.harvestCrops();
+//        WeeklyRoutineUtilities.dailyRoutine();
+//        WeeklyRoutineUtilities.harvestCrops();
 
         //Then
         //Assert # crops harvested = 50
@@ -72,7 +73,7 @@ public class WeeklyRoutineTest {
 
     @Test
     public void wednesdayTest() {
-        WeeklyRoutineUtilities.dailyRoutine();
+//        WeeklyRoutineUtilities.dailyRoutine();
         FarmFactory.plantField(froilanFarm);
 
         List<CropRow> cropRows = fields.get(0).getItems();
@@ -88,14 +89,14 @@ public class WeeklyRoutineTest {
 
     @Test
     public void thursdayTest() {
-        WeeklyRoutineUtilities.dailyRoutine();
-        WeeklyRoutineUtilities.fertilizeCrops();
+//        WeeklyRoutineUtilities.dailyRoutine();
+//        WeeklyRoutineUtilities.fertilizeCrops();
     }
 
     @Test
     public void fridayTest() {
-        WeeklyRoutineUtilities.dailyRoutine();
-        WeeklyRoutineUtilities.harvestCrops();
+//        WeeklyRoutineUtilities.dailyRoutine();
+//        WeeklyRoutineUtilities.harvestCrops();
     }
 
 

@@ -27,7 +27,6 @@ public class FarmFactory {
         };
 
         createContainers(farm, containersToCreate);
-        plantField(farm);
         populateFarmhouse(farm);
         populateStable(farm);
         populateChickenCoop(farm);

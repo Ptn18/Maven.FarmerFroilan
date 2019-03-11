@@ -30,7 +30,7 @@ public class TempCropDusterTest {
 
         //When
         Cropduster testPlane = new Cropduster();
-        testPlane.fertilize(testRow);
+        testPlane.fertilize(testCornStalk);
 
         //Then
         Assert.assertTrue(testCornStalk.hasBeenFertilized());
@@ -46,7 +46,7 @@ public class TempCropDusterTest {
 
         //When
         Cropduster testPlane = new Cropduster();
-        testPlane.fertilize(testRow);
+        testPlane.fertilize(testCornStalk);
 
         //Then
         Assert.assertTrue(testCornStalk.hasBeenFertilized());
