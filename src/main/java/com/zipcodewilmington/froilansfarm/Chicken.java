@@ -5,6 +5,7 @@ public class Chicken extends Animal implements Produce {
     private Integer age;
     private Integer id;
     Silo silo;
+    
     boolean hasBeenFertilized;
     
     public Chicken(String name, Integer age, Integer id) {
@@ -35,5 +36,9 @@ public class Chicken extends Animal implements Produce {
     
     public void setHasBeenFertilized(boolean fertilized) {
         this.hasBeenFertilized = fertilized;
+    }
+    
+    public void setSilo(Silo silo) {
+        this.silo = silo;
     }
 }

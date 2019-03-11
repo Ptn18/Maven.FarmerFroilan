@@ -1,12 +1,11 @@
 package com.zipcodewilmington.froilansfarm;
 
-import java.util.Date;
-
 public class Horse extends Animal implements Rideable {
     private String name;
     private Integer age;
     private Integer id;
     private boolean hasBeenRidden;
+    Silo silo;
     
     public Horse(String name, Integer age, Integer id) {
         super(name, age, id);
@@ -19,7 +18,7 @@ public class Horse extends Animal implements Rideable {
     }
     
     public void eat(Edible food) {
-        System.out.println("Yum!");
+        silo.remove(food);
     }
     
     @Override
@@ -36,4 +35,7 @@ public class Horse extends Animal implements Rideable {
         this.hasBeenRidden = flag;
     }
     
+    public void setSilo(Silo silo) {
+        this.silo = silo;
+    }
 }

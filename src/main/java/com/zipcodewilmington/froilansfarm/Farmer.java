@@ -60,20 +60,8 @@ public class Farmer extends Person implements Botanist, Rider {
         this.stable = stable;
     }
     
-    public Silo getSilo() {
-        return silo;
-    }
-    
     public void setSilo(Silo silo) {
         this.silo = silo;
-    }
-    
-    public Stable getStable() {
-        return stable;
-    }
-    
-    public Barn getBarn() {
-        return barn;
     }
     
     public void setBarn(Barn barn) {

@@ -42,16 +42,8 @@ public class Pilot extends Person implements Rider {
         return "I'm cropdustin'!";
     }
     
-    public Silo getSilo() {
-        return silo;
-    }
-    
     public void setSilo(Silo silo) {
         this.silo = silo;
-    }
-    
-    public Barn getBarn() {
-        return barn;
     }
     
     public void setBarn(Barn barn) {

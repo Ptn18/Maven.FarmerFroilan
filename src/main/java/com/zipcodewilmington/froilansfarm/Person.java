@@ -15,7 +15,6 @@ public abstract class Person extends Animal {
         id = 1;
     }
     
-    @Override
     public void eat(Edible food) {
     }
     
@@ -25,7 +24,6 @@ public abstract class Person extends Animal {
         this.id = id;
     }
     
-    @Override
     public String makeNoise() {
         return "Huh?";
     }
