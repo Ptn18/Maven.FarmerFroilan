@@ -52,15 +52,6 @@ public class FarmerTest {
         Assert.assertEquals(expectedInteger, barn.numberHolding());
     }
     
-   /* @Test
-    public void rideTest() {
-        //Given
-        horse.setHasBeenRidden(true);
-        //When
-        //Then
-        Assert.assertTrue(horse.getHasBeenRidden());
-    }*/
-    
     @Test
     public void dismountHorseTest() {
         //Given

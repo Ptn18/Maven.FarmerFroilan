@@ -31,11 +31,7 @@ public class Farmer extends Person implements Botanist, Rider {
             barn.remove((FarmVehicle) transport);
         }
     }
-    
-   /* public void ride() {
-        System.out.println("We're ridin' along!");
-    }*/
-    
+
     public void dismount(Rideable transport) {
         if (transport instanceof Animal) {
             stable.store((Horse) transport);

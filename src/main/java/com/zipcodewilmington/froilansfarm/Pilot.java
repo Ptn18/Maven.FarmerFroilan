@@ -30,10 +30,6 @@ public class Pilot extends Person implements Rider {
         barn.remove((FarmVehicle) transport);
     }
     
-    /*public void ride() {
-        System.out.println("I'm ridin' along!");
-    }*/
-    
     public void dismount(Rideable transport) {
         barn.store((FarmVehicle) transport);
     }

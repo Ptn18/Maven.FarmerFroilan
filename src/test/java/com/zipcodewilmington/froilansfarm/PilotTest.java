@@ -38,14 +38,6 @@ public class PilotTest {
         Assert.assertEquals(expectedInteger, barn.numberHolding());
     }
     
-/*    @Test
-    @Ignore
-    public void rideTest() {
-        //Given
-        //When
-        //Then
-    }*/
-    
     @Test
     public void dismountTest() {
         //Given
