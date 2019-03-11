@@ -1,6 +1,5 @@
 package com.zipcodewilmington.froilansfarm;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -11,7 +10,7 @@ public class FarmFactory {
 
 
     public static Farm create(){
-        Farm farm =new Farm();
+        Farm farm = new Farm();
 
         FarmItems[] containersToCreate = {
                 FarmItems.PERSON,
@@ -28,30 +27,22 @@ public class FarmFactory {
         };
 
         createContainers(farm, containersToCreate);
-
-
-//     FarmHouse house = createFarmHouse();
-//     farm.addContainer(house);
-//
-//     List<ChickenCoop> coop = createChickenCoop();
-//     farm.addChickenCoop(coop);
-//
-//     List<Stable> stable = createStable();
-//     farm.addStables(stable);
-
-     Cropduster cropduster = new Cropduster();
-     Tractor tractor = new Tractor();
-
-     farm.addTractor(tractor);
-     farm.addCropduster(cropduster);
-//
-//     Field field = createField();
-//     farm.addField(field);
+        plantField(farm);
+        populateFarmhouse(farm);
+        populateStable(farm);
+        populateChickenCoop(farm);
+        populateBarn(farm);
 
      return farm;
-
     }
-    
+
+
+    public static void createContainers(Farm farm, FarmItems[] containersToCreate) {
+        Stream<FarmItems> containerStream = Stream.of(containersToCreate);
+        containerStream.forEach(farm::createContainer);
+    }
+
+
     public static void plantField(Farm farm) {
         List<Container> fields = farm.getSpecificContainers(FarmItems.CROPROW);
 
@@ -66,6 +57,7 @@ public class FarmFactory {
     
     private static CropRow createCropRow(Crop.Type type) {
         CropRow cropRow = (CropRow) ContainerFactory.createContainer(FarmItems.CROP);
+        cropRow.setTypePlanted(type);
         for (int i = 0; i < 10; i++) {
             Crop crop = new Crop(type);
             cropRow.store(crop);
@@ -73,61 +65,52 @@ public class FarmFactory {
         return cropRow;
     }
     
-    private static FarmHouse createFarmHouse() {
-        FarmHouse farmHouse = new FarmHouse();
-        AnimalFactory froilanAnimal = AnimalFactory.createFactory(FARMER);
-        Farmer froilan = (Farmer) froilanAnimal;
-        //Farmer froilan = new Farmer("Froilan",40,1);
-        farmHouse.store(froilan);
-        
-        //Farmer froilanda = new Farmer("Froilanda", 25, 2);
-        AnimalFactory froilandaAnimal = AnimalFactory.createFactory(PILOT);
-        Pilot froilanda = (Pilot) froilandaAnimal;
-        farmHouse.store(froilanda);
-        
-        return farmHouse;
+    private static void populateFarmhouse(Farm farm) {
+        List<Container> farmHouses = farm.getSpecificContainers(FarmItems.PERSON);
+        Container farmhouse = farmHouses.get(0);
+
+//        AnimalFactory froilanAnimal = AnimalFactory.createFactory(FARMER);
+//        Farmer froilan = (Farmer) froilanAnimal;
+        Farmer froilan = new Farmer("Froilan",40,1);
+        farmhouse.store(froilan);
+
+//        AnimalFactory froilandaAnimal = AnimalFactory.createFactory(PILOT);
+//        Pilot froilanda = (Pilot) froilandaAnimal;
+        Farmer froilanda = new Farmer("Froilanda", 25, 2);
+        farmhouse.store(froilanda);
     }
     
-    private static List<Stable> createStable() {
-        List<Stable> stables = new ArrayList<>();
-        for (int j = 0; j < 3; j++) {
-            Stable stable = new Stable();
+    private static void populateStable(Farm farm) {
+        List<Container> stables = farm.getSpecificContainers(FarmItems.HORSE);
+        for (int j = 0; j < stables.size(); j++) {
+            Container stable = stables.get(j);
             for (int i = 0; i < 4; i++) {
                 Horse horse = new Horse("Maximus" + i, 3, 1 + i);
                 stable.store(horse);
             }
-            stables.add(stable);
         }
-        return stables;
     }
     
-    private static List<ChickenCoop> createChickenCoop() {
-        List<ChickenCoop> coops = new ArrayList<>();
-        for (int j = 0; j < 4; j++) {
-            ChickenCoop chickenCoop = new ChickenCoop();
+    private static void populateChickenCoop(Farm farm) {
+        List<Container> chickenCoops = farm.getSpecificContainers(FarmItems.CHICKEN);
+        for (int j = 0; j < chickenCoops.size(); j++) {
+            Container chickenCoop = chickenCoops.get(j);
             for (int i = 0; i < 4; i++) {
                 Chicken chicken = new Chicken("Cooper" + i, 2, 1 + i);
                 chickenCoop.store(chicken);
             }
-            coops.add(chickenCoop);
         }
-        return coops;
     }
 
+    private static void populateBarn(Farm farm) {
+        List<Container> barns = farm.getSpecificContainers(FarmItems.VEHICLE);
+        Container barn = barns.get(0);
 
-    //----------------
+        Cropduster cropduster = new Cropduster();
+        Tractor tractor = new Tractor();
 
-    public static void createContainers(Farm farm, FarmItems[] containersToCreate) {
-        Stream<FarmItems> containerStream = Stream.of(containersToCreate);
-        containerStream.forEach(farm::createContainer);
-    }
-
-        //create vehicles
-
-        //populate coops
-    public static void populateChickenCoops(Farm farm) {
-
-
+        barn.store(cropduster);
+        barn.store(tractor);
     }
 
 }
