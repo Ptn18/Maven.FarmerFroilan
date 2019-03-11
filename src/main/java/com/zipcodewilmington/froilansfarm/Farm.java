@@ -6,9 +6,6 @@ import java.util.function.Supplier;
 
 public class Farm {
     private List<Container> containers;
-    private Tractor tractor;
-    private Cropduster cropduster;
-    private List<ChickenCoop> chickenCoops;
     private List<Stable> stables;
 
 
@@ -27,18 +24,6 @@ public class Farm {
     public void createContainer(FarmItems itemsToStore) {
         Container container = ContainerFactory.createContainer(itemsToStore);
         containers.add(container);
-    }
-
-    public void addTractor(Tractor tractor) {
-        this.tractor = tractor;
-    }
-
-    public void addCropduster(Cropduster cropduster) {
-        this.cropduster = cropduster;
-    }
-
-    public void addChickenCoop(List<ChickenCoop> coops) {
-        this.chickenCoops = coops;
     }
 
     public void addStables(List<Stable> stable) {
