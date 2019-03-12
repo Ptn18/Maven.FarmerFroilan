@@ -3,6 +3,9 @@ package com.zipcodewilmington.froilansfarm;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TempTractorTest {
 
     @Test
@@ -41,31 +44,52 @@ public class TempTractorTest {
         Farm farm = new Farm();
         farm.createContainer(FarmItems.CROPROW);
         FarmFactory.plantField(farm);
+        Cropduster cropduster = new Cropduster();
+        cropduster.operate(farm);
         Tractor tractor = new Tractor();
 
         //When
-        tractor.operate(farm);
-        Integer actual = 50;
         Integer expected = 50;
+        List<Crop> results = tractor.operate(farm);
+        Integer actual = results.size();
 
         //Then
         Assert.assertEquals(expected, actual);
     }
 
-//    @Test
-//    public void harvestTest() {
-//        //Given
-//        CropRow testRow = new CropRow();
-//        Crop testCornStalk = new Crop(Crop.Type.CORNSTALK);
-//        testRow.store(testCornStalk);
-//
-//        //When
-//        Tractor testTractor = new Tractor();
-//        Crop[] actual = testTractor.harvest(testRow);
-//
-//        //Then
-//        Assert.assertNull(actual);
-//        Assert.assertFalse(testCornStalk.hasBeenFertilized());
-//        Assert.assertFalse(testCornStalk.isHarvested());
-//    }
+    @Test
+    public void harvestTest() {
+        //Given
+        CropRow testRow = new CropRow();
+        Crop testCrop = new Crop(Crop.Type.CORNSTALK);
+        testRow.store(testCrop);
+        testCrop.fertilized();
+
+        //When
+        Tractor testTractor = new Tractor();
+        List<Crop> actual = testTractor.harvest(testRow.getItems());
+
+        //Then
+        Assert.assertEquals(1, actual.size());
+        Assert.assertFalse(testCrop.hasBeenFertilized());
+        Assert.assertTrue(testCrop.isHarvested());
+    }
+
+    @Test
+    public void removeAllCropsTest() {
+        //Given
+        Farm farm = new Farm();
+        farm.createContainer(FarmItems.CROPROW);
+        FarmFactory.plantField(farm);
+        Field field = Field.getField(farm);
+
+        //When
+        Tractor testTractor = new Tractor();
+        testTractor.removeAllCrops(field);
+        Integer expected = 0;
+        Integer actual = field.numberHolding();
+
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
 }

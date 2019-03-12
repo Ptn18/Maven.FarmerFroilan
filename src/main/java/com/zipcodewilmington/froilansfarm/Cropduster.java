@@ -1,5 +1,6 @@
 package com.zipcodewilmington.froilansfarm;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cropduster extends FarmVehicle implements Aircraft{
@@ -19,40 +20,30 @@ public class Cropduster extends FarmVehicle implements Aircraft{
         return plane;
     }
 
-    public Integer operate(Farm farm){
-        Cropduster plane = getCropduster(farm);
+    public List<Crop> operate(Farm farm){
         System.out.println(makeNoise());
         Field field = Field.getField(farm);
-        return fertilizeField(plane, field);
+        List<Crop> allCrops = getAllCrops(field);
+        return fertilize(allCrops);
     }
 
-
-    public static Integer fertilizeField(Cropduster cropduster, Field field) {
-        Integer cropsFertilized = 0;
+    public List<Crop> getAllCrops(Field field) {
+        List<Crop> cropsToFertilize = new ArrayList<>();
         List<CropRow> cropRows = field.getItems();
-        for (int i = 0; i < field.numberHolding() ; i++) {
-            CropRow rowToFertilize = cropRows.get(i);
-            cropsFertilized += fertilizeCropRow(cropduster, rowToFertilize);
+        for (CropRow row: cropRows) {
+            cropsToFertilize.addAll(row.getItems());
         }
-        return cropsFertilized;
+        return cropsToFertilize;
     }
 
-    private static Integer fertilizeCropRow(Cropduster cropduster, CropRow rowToFertilize) {
-        Integer cropsFertilized = 0;
-        List<Crop> crops = rowToFertilize.getItems();
-        for (int i = 0; i < crops.size() ; i++) {
-            Crop cropToFertilize = crops.get(i);
-            cropsFertilized = cropduster.fertilize(cropToFertilize);;
+    private List<Crop> fertilize(List<Crop> cropstoFertilize) {
+        ArrayList<Crop> fertilizedCrops = new ArrayList<>();
+        for(Crop crop : cropstoFertilize) {
+            if (!crop.hasBeenFertilized()) {
+                fertilizedCrops.add(crop);
+                crop.fertilized();
+            }
         }
-        return cropsFertilized;
-    }
-
-    public Integer fertilize(Crop crop) {
-        Integer numberFertilized = 0;
-        if(!crop.hasBeenFertilized()) {
-            crop.fertilized();
-            numberFertilized ++;
-        }
-        return numberFertilized;
+        return fertilizedCrops;
     }
 }
