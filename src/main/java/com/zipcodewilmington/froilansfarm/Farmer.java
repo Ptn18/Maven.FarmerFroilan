@@ -1,5 +1,7 @@
 package com.zipcodewilmington.froilansfarm;
 
+import java.util.List;
+
 public class Farmer extends Person implements Botanist, Rider {
     
     private String name;
@@ -63,4 +65,16 @@ public class Farmer extends Person implements Botanist, Rider {
     public void setBarn(Barn barn) {
         this.barn = barn;
     }
+
+    public static Farmer getFarmer(Farm farm) {
+        List<Person> people = Person.getPeople(farm);
+        Farmer farmer = null;
+        for (Person person : people) {
+            if(person instanceof Farmer) {
+                farmer = (Farmer) person;
+            }
+        }
+        return farmer;
+    }
+
 }

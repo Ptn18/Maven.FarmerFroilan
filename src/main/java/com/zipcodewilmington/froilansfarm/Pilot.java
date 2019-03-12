@@ -1,5 +1,7 @@
 package com.zipcodewilmington.froilansfarm;
 
+import java.util.List;
+
 public class Pilot extends Person implements Rider {
     
     private String name;
@@ -44,5 +46,16 @@ public class Pilot extends Person implements Rider {
     
     public void setBarn(Barn barn) {
         this.barn = barn;
+    }
+
+    public static Pilot getPilot(Farm farm) {
+        List<Person> people = Person.getPeople(farm);
+        Pilot pilot = null;
+        for (Person person : people) {
+            if(person instanceof Pilot) {
+                pilot = (Pilot) person;
+            }
+        }
+        return pilot;
     }
 }
