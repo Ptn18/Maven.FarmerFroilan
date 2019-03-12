@@ -3,6 +3,8 @@ package com.zipcodewilmington.froilansfarm;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.List;
+
 public class TempCropDusterTest {
 
     @Test
@@ -19,36 +21,26 @@ public class TempCropDusterTest {
 
         //When
         String actual = testPlane.makeNoise();
+
+        //Then
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void fertilizeTest1() {
+    public void operateTest() {
         //Given
-        CropRow testRow = new CropRow();
-        Crop testCornStalk = new Crop(Crop.Type.CORNSTALK);
-        testRow.store(testCornStalk);
+        Farm farm = new Farm();
+        farm.createContainer(FarmItems.CROPROW);
+        FarmFactory.plantField(farm);
+        Cropduster cropduster = new Cropduster();
 
         //When
-        Cropduster testPlane = new Cropduster();
-        testPlane.fertilize(testCornStalk);
+        Integer expected = 50;
+        List<Crop> results = cropduster.operate(farm);
+        Integer actual = results.size();
 
         //Then
-        Assert.assertTrue(testCornStalk.hasBeenFertilized());
+        Assert.assertEquals(expected, actual);
     }
 
-    @Test
-    public void fertilizeTest2() {
-        //Given
-        CropRow testRow = new CropRow();
-        Crop testCornStalk = new Crop(Crop.Type.CORNSTALK);
-        testRow.store(testCornStalk);
-        testCornStalk.fertilized();
-
-        //When
-        Cropduster testPlane = new Cropduster();
-        testPlane.fertilize(testCornStalk);
-
-        //Then
-        Assert.assertTrue(testCornStalk.hasBeenFertilized());
-    }
 }
