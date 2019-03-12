@@ -26,7 +26,7 @@ public class Farm {
     }
     
     public void addStables(List<Stable> stable) {
-        this.stables = stables;
+        this.stables = stable;
     }
     
     public List<Container> getSpecificContainers(FarmItems typeToGet) {
@@ -42,18 +42,58 @@ public class Farm {
     }
     
     public void run() {
-        runMonday();
-        
-        
+        runSundayOrWednesday();
+        runMondayOrThursday();
+        runTuesdayOrFriday();
+        runSaturday();
     }
     
-    private void runMonday() {
-        feedAndRideHorse();
+    private void runSundayOrWednesday() {
+        //plantRoutine();
+        dailyRoutine();
+    }
+    
+    private void runMondayOrThursday() {
+        //fertilizeRoutine();
+        dailyRoutine();
+    }
+    
+    private void runTuesdayOrFriday() {
+        //harvestRoutine();
+        dailyRoutine();
+    }
+    
+    private void runSaturday() {
+        dailyRoutine();
+    }
+    
+    private void dailyRoutine() {
+        //feedAndRideHorse();
+        rideHorse();
+        feedHorses();
         feedingHumans();
-        
+        resetFlags();
     }
     
-    public void feedAndRideHorse() {
+/*
+    private void plantRoutine(){}
+    
+    private void fertilizeRoutine(){}
+    
+    private void harvestRoutine(){}
+*/
+    
+    public void resetFlags() {
+        for (int j = 0; j < stables.size(); j++) {
+            Stable stable = stables.get(j);
+            List<Horse> horses = stable.getItems();
+            for (Horse h : horses) {
+                h.setHasBeenRidden(false);
+            }
+        }
+    }
+    
+    /*public void feedAndRideHorse() {
         for (int j = 0; j < stables.size(); j++) {
             Stable stable = stables.get(j);
             List<Horse> horses = stable.getItems();
@@ -63,8 +103,32 @@ public class Farm {
                 for (int k = 0; k < 3; k++) {
                     EarCorn earCorn = new EarCorn();
                     horse.eat(earCorn);
-                }
+        }
+    }
+        }
+    }*/
+    
+    public Horse findHorse() {
+        Horse horsey = new Horse("A", 1, 1);
+        for (int j = 0; j < stables.size(); j++) {
+            Stable stable = stables.get(j);
+            List<Horse> horses = stable.getItems();
+            for (int i = 0; i < horses.size(); i++) {
+                horsey = horses.get(i);
             }
+        }
+        return horsey;
+    }
+    
+    public void rideHorse() {
+        findHorse().setHasBeenRidden(true);
+    }
+    
+    public void feedHorses() {
+        Horse horse = findHorse();
+        for (int k = 0; k < 3; k++) {
+            EarCorn earCorn = new EarCorn();
+            horse.eat(earCorn);
         }
     }
     
@@ -76,10 +140,10 @@ public class Farm {
         feedHuman(froilan, Tomato::new, 2);
     }
     
-    public void feedHuman(Farmer person, Supplier<Edible> supplier, int amount) {
+    public void feedHuman(Farmer person, Supplier<Edible> supplier,
+                          int amount) {
         for (int i = 0; i < amount; i++) {
             person.eat(supplier.get());
         }
     }
 }
-
