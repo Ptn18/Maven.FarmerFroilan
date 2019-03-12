@@ -1,5 +1,7 @@
 package com.zipcodewilmington.froilansfarm;
 
+import java.util.List;
+
 public abstract class Person extends Animal {
     private String name;
     private Integer age;
@@ -26,6 +28,10 @@ public abstract class Person extends Animal {
     
     public String makeNoise() {
         return "Huh?";
+    }
+
+    public static List<Person> getPeople(Farm farm) {
+        return farm.getSpecificContainers(FarmItems.PERSON).get(0).getItems();
     }
 
 }

@@ -20,13 +20,14 @@ public class Tractor extends FarmVehicle implements Rideable {
         return tractor;
     }
 
-    public List<Crop> operate(Farm farm){
+    public void operate(Farm farm){
         System.out.println(makeNoise());
         Field field = Field.getField(farm);
+        Silo silo = Silo.getSilo(farm);
         List<Crop> allCrops = getAllCrops(field);
-        List<Crop> harvestedCrops = harvest(allCrops);
+        List<Edible> harvestedCrops = harvest(allCrops);
+        silo.getItems().addAll(harvestedCrops);
         removeAllCrops(field);
-        return harvestedCrops;
     }
 
     public List<Crop> getAllCrops(Field field) {
@@ -38,11 +39,11 @@ public class Tractor extends FarmVehicle implements Rideable {
         return cropsToHarvest;
     }
 
-    public List<Crop> harvest(List<Crop> cropsToHarvest) {
-        ArrayList<Crop> harvestedCrops = new ArrayList<>();
+    public List<Edible> harvest(List<Crop> cropsToHarvest) {
+        ArrayList<Edible> harvestedCrops = new ArrayList<>();
         for (Crop crop : cropsToHarvest) {
             if(crop.checkHarvestability()) {
-                harvestedCrops.add(crop);
+                harvestedCrops.add(crop.yield());
                 crop.setHarvested();
                 crop.fertilized();}
         }
@@ -53,4 +54,5 @@ public class Tractor extends FarmVehicle implements Rideable {
         List<CropRow> cropRows = field.getItems();
         cropRows.clear();
     }
+
 }

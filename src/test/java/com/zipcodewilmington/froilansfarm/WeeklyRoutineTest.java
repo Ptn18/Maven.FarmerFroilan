@@ -16,6 +16,12 @@ public class WeeklyRoutineTest {
     List<Container> chickenCoops = froilanFarm.getSpecificContainers(FarmItems.CHICKEN);
     List<Container> barns = froilanFarm.getSpecificContainers(FarmItems.VEHICLE);
 
+    Tractor tractor = Tractor.getTractor(froilanFarm);
+    Cropduster cropduster = Cropduster.getCropduster(froilanFarm);
+
+    Farmer froilan = Farmer.getFarmer(froilanFarm);
+    Pilot froilanda = Pilot.getPilot(froilanFarm);
+
     @Test
     public void farmCreationTest() {
         Assert.assertEquals(11, allContainers.size());
@@ -51,13 +57,15 @@ public class WeeklyRoutineTest {
 
     @Test
     public void mondayTest() {
+
 //        WeeklyRoutineUtilities.dailyRoutine();
-//        WeeklyRoutineUtilities.fertilizeField(, )
+//        WeeklyRoutineUtilities.fertilizeField(froilanFarm);
 
-
+        Integer expectedNumberFertizlied = 50;
+//        Integer actualNumberFertilized = cropduster.getNumberCropsFertilized(cropduster.getAllCrops((Field) fields.get(0)));
 
         //Then
-        //Assert # crops fertilized = 50
+//        Assert.assertEquals(expectedNumberFertizlied, actualNumberFertilized);
     }
 
     @Test
@@ -90,13 +98,13 @@ public class WeeklyRoutineTest {
     @Test
     public void thursdayTest() {
 //        WeeklyRoutineUtilities.dailyRoutine();
-//        WeeklyRoutineUtilities.fertilizeCrops();
+//        WeeklyRoutineUtilities.fertilizeField(froilanFarm);
     }
 
     @Test
     public void fridayTest() {
 //        WeeklyRoutineUtilities.dailyRoutine();
-//        WeeklyRoutineUtilities.harvestCrops();
+//        WeeklyRoutineUtilities.harvestCrops(froilanFarm);
     }
 
 

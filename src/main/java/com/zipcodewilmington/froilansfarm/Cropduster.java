@@ -20,11 +20,11 @@ public class Cropduster extends FarmVehicle implements Aircraft{
         return plane;
     }
 
-    public List<Crop> operate(Farm farm){
+    public void operate(Farm farm){
         System.out.println(makeNoise());
         Field field = Field.getField(farm);
         List<Crop> allCrops = getAllCrops(field);
-        return fertilize(allCrops);
+        fertilize(allCrops);
     }
 
     public List<Crop> getAllCrops(Field field) {
@@ -36,14 +36,24 @@ public class Cropduster extends FarmVehicle implements Aircraft{
         return cropsToFertilize;
     }
 
-    private List<Crop> fertilize(List<Crop> cropstoFertilize) {
+    private void fertilize(List<Crop> cropsToFertilize) {
         ArrayList<Crop> fertilizedCrops = new ArrayList<>();
-        for(Crop crop : cropstoFertilize) {
+        for(Crop crop : cropsToFertilize) {
             if (!crop.hasBeenFertilized()) {
                 fertilizedCrops.add(crop);
                 crop.fertilized();
             }
         }
-        return fertilizedCrops;
+    }
+
+    public Integer getNumberCropsFertilized(List<Crop> crops) {
+        Integer numberFertilized = 0;
+
+        for (Crop crop : crops) {
+            if(crop.hasBeenFertilized()) {
+                numberFertilized++;
+            }
+        }
+        return numberFertilized;
     }
 }
