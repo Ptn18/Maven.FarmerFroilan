@@ -1,6 +1,6 @@
 package com.zipcodewilmington.froilansfarm;
 
-public abstract class Person extends Animal{
+public abstract class Person extends Animal {
     private String name;
     private Integer age;
     private Integer id;
@@ -9,15 +9,13 @@ public abstract class Person extends Animal{
         super(name, age, id);
     }
     
-    public Person(){
+    public Person() {
         name = "MacDonald";
         age = 60;
         id = 1;
     }
     
-    @Override
     public void eat(Edible food) {
-
     }
     
     public void create(String name, Integer age, Integer id) {
@@ -25,10 +23,9 @@ public abstract class Person extends Animal{
         this.age = age;
         this.id = id;
     }
-
-    @Override
+    
     public String makeNoise() {
-    return null;
+        return "Huh?";
     }
 
 }

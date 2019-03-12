@@ -11,15 +11,34 @@ public class ChickenTest {
     
 
     @Test
-    @Ignore
     public void eatTest() {
         //Given
         Integer expectedInt = 0;
+        chicken.setSilo(silo);
         silo.store(potato);
         //When
         chicken.eat(potato);
         //Then
         Assert.assertEquals(expectedInt, silo.numberHolding());
+    }
+    
+    @Test
+    public void yieldTest(){
+        //Given
+        //When
+        Edible actual = chicken.yield();
+        //Then
+        Assert.assertNotNull(actual);
+    }
+    
+    @Test
+    public void yieldTest2(){
+        //Given
+        Edible edibleEgg = new EdibleEgg();
+        //When
+        Edible actual = chicken.yield();
+        Assert.assertTrue(actual instanceof EdibleEgg);
+        //Then
     }
     
     @Test

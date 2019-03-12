@@ -4,21 +4,17 @@ import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import static com.zipcodewilmington.froilansfarm.Crop.Type.POTATO_PLANT;
-
 public class FarmerTest {
     Farmer farmer = new Farmer("Farmer Joe", 49, 2);
-    Horse horse = new Horse("Harry Trotter", 20, 3);
-    Crop crop;
     CropRow cropRow1 = new CropRow();
     Stable stable = new Stable();
     Silo silo = new Silo();
+    Barn barn = new Barn();
     
     @Test
-    @Ignore
     public void eatTest() {
         //Given
-        Integer expectedInt = 1;
+        Integer expectedInt = 0;
         PotatoPlant potatoPlant = new PotatoPlant();
         potatoPlant.fertilized();
         Edible potato = potatoPlant.yield();
@@ -31,41 +27,65 @@ public class FarmerTest {
     }
     
     @Test
-    public void mountTest() {
+    public void mountHorseTest() {
         //Given
+        Horse horse = new Horse("A", 1, 2);
         Integer expectedInteger = 0;
-        //When
+        farmer.setStable(stable);
         stable.store(horse);
-        stable.remove(horse);
+        //When
+        farmer.mount(horse);
         //Then
         Assert.assertEquals(expectedInteger, stable.numberHolding());
     }
     
     @Test
-    public void rideTest() {
+    public void mountTractorTest() {
         //Given
-        horse.setHasBeenRidden(true);
+        FarmVehicle tractor = new Tractor();
+        Integer expectedInteger = 0;
+        farmer.setBarn(barn);
+        barn.store(tractor);
         //When
+        farmer.mount(tractor);
         //Then
-        Assert.assertTrue(horse.getHasBeenRidden());
+        Assert.assertEquals(expectedInteger, barn.numberHolding());
     }
     
     @Test
-    public void dismountTest() {
+    public void dismountHorseTest() {
         //Given
+        Horse horse = new Horse("A", 1, 2);
         Integer expectedInteger = 1;
+        farmer.setStable(stable);
         //When
-        stable.store(horse);
+        farmer.dismount(horse);
         //Then
         Assert.assertEquals(expectedInteger, stable.numberHolding());
         
     }
     
     @Test
+    public void dismountTractorTest() {
+        //Given
+        FarmVehicle tractor = new Tractor();
+        Integer expectedInteger = 1;
+        farmer.setBarn(barn);
+        //When
+        farmer.dismount(tractor);
+        //Then
+        Assert.assertEquals(expectedInteger, barn.numberHolding());
+        
+    }
+    
+    @Test
     public void makeNoiseTest() {
         //Given
+        String expectedString = "Hmmm";
         //When
+        String actualString = farmer.makeNoise();
         //Then
+        Assert.assertEquals(expectedString, actualString);
     }
     
     @Test
