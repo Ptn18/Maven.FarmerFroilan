@@ -59,13 +59,15 @@ public class WeeklyRoutineTest {
     public void mondayTest() {
 
 //        WeeklyRoutineUtilities.dailyRoutine();
-//        WeeklyRoutineUtilities.fertilizeField(froilanFarm);
-
+        List<Crop> allCrops = cropduster.getAllCrops((Field) fields.get(0));
+        WeeklyRoutineUtilities.fertilizeField(froilanFarm);
         Integer expectedNumberFertizlied = 50;
-//        Integer actualNumberFertilized = cropduster.getNumberCropsFertilized(cropduster.getAllCrops((Field) fields.get(0)));
+        List<CropRow> allrows = fields.get(0).getItems();
+
+        Integer actualNumberFertilized = cropduster.getNumberCropsFertilized(allCrops);
 
         //Then
-//        Assert.assertEquals(expectedNumberFertizlied, actualNumberFertilized);
+        Assert.assertEquals(expectedNumberFertizlied, actualNumberFertilized);
     }
 
     @Test

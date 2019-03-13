@@ -31,14 +31,15 @@ public class TempCropDusterTest {
         //Given
         Farm farm = new Farm();
         farm.createContainer(FarmItems.CROPROW);
-        Field field = (Field) farm.getSpecificContainers(FarmItems.CROPROW);
+        List<Container> fields = farm.getSpecificContainers(FarmItems.CROPROW);
         FarmFactory.plantField(farm);
         Cropduster cropduster = new Cropduster();
 
         //When
         Integer expected = 50;
         cropduster.operate(farm);
-        Integer actual = cropduster.getNumberCropsFertilized(cropduster.getAllCrops(field));
+        List<Crop> allCrops = cropduster.getAllCrops((Field)fields.get(0));
+        Integer actual = cropduster.getNumberCropsFertilized(allCrops);
 
         //Then
         Assert.assertEquals(expected, actual);

@@ -30,7 +30,7 @@ public class Farmer extends Person implements Botanist, Rider {
             setStable(stable);
             stable.remove((Horse) transport);
         } else if (transport instanceof FarmVehicle) {
-            barn.remove((FarmVehicle) transport);
+            makeNoise();
         }
     }
 
@@ -38,7 +38,7 @@ public class Farmer extends Person implements Botanist, Rider {
         if (transport instanceof Animal) {
             stable.store((Horse) transport);
         } else if (transport instanceof FarmVehicle) {
-            barn.store((FarmVehicle) transport);
+            makeNoise();
         }
     }
     

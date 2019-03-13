@@ -29,11 +29,11 @@ public class Pilot extends Person implements Rider {
     }
     
     public void mount(Rideable transport) {
-        barn.remove((FarmVehicle) transport);
+        makeNoise();
     }
     
     public void dismount(Rideable transport) {
-        barn.store((FarmVehicle) transport);
+        makeNoise();
     }
     
     public String fly(Aircraft aircraft) {

@@ -75,7 +75,7 @@ public class FarmFactory {
 
 //        AnimalFactory froilandaAnimal = AnimalFactory.createFactory(PILOT);
 //        Pilot froilanda = (Pilot) froilandaAnimal;
-        Farmer froilanda = new Farmer("Froilanda", 25, 2);
+        Pilot froilanda = new Pilot("Froilanda", 25, 2);
         farmhouse.store(froilanda);
     }
     
