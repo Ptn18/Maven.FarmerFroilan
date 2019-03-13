@@ -6,7 +6,7 @@ public class WeeklyRoutineUtilities {
 
 
 
-public static void fertilizeField(Farm farm){
+public static void harvestCrops(Farm farm){
     Farmer froilan = Farmer.getFarmer(farm);
     froilan.makeNoise();
     Tractor tractor = Tractor.getTractor(farm);
@@ -15,9 +15,8 @@ public static void fertilizeField(Farm farm){
     froilan.dismount(tractor);
 }
 
-public static void harvestCrops(Farm farm) {
+public static void fertilizeField(Farm farm) {
     Pilot froilanda = Pilot.getPilot(farm);
-    froilanda.makeNoise();
     Cropduster plane = Cropduster.getCropduster(farm);
     froilanda.mount(plane);
     plane.operate(farm);

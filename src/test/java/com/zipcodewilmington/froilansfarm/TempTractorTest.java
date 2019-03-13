@@ -43,6 +43,8 @@ public class TempTractorTest {
         //Given
         Farm farm = new Farm();
         farm.createContainer(FarmItems.CROPROW);
+        farm.createContainer(FarmItems.EDIBLE);
+        Silo silo = (Silo) farm.getSpecificContainers(FarmItems.EDIBLE).get(0);
         FarmFactory.plantField(farm);
         Cropduster cropduster = new Cropduster();
         cropduster.operate(farm);
@@ -51,10 +53,10 @@ public class TempTractorTest {
         //When
         Integer expected = 50;
         tractor.operate(farm);
-//        Integer actual = results.size();
+        Integer actual = silo.numberHolding();
 
         //Then
-//        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -64,13 +66,14 @@ public class TempTractorTest {
         Crop testCrop = new Crop(Crop.Type.CORNSTALK);
         testRow.store(testCrop);
         testCrop.fertilized();
+        Tractor testTractor = new Tractor();
 
         //When
-        Tractor testTractor = new Tractor();
-//        actual = testTractor.harvest(testRow.getItems());
-//
+
+        long actual = testTractor.harvest(testRow.getItems()).size();
+
 //        //Then
-//        Assert.assertEquals(1, actual.size());
+        Assert.assertEquals(1, actual);
         Assert.assertFalse(testCrop.hasBeenFertilized());
         Assert.assertTrue(testCrop.isHarvested());
     }
