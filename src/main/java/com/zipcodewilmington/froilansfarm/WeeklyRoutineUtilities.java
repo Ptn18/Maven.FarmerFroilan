@@ -1,6 +1,9 @@
 package com.zipcodewilmington.froilansfarm;
 
-import java.util.List;
+import com.zipcodewilmington.froilansfarm.Animals.Farmer;
+import com.zipcodewilmington.froilansfarm.Animals.Pilot;
+import com.zipcodewilmington.froilansfarm.Vehicles.Cropduster;
+import com.zipcodewilmington.froilansfarm.Vehicles.Tractor;
 
 public class WeeklyRoutineUtilities {
 

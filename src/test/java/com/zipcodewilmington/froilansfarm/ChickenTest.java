@@ -1,7 +1,11 @@
 package com.zipcodewilmington.froilansfarm;
 
+import com.zipcodewilmington.froilansfarm.Animals.Animal;
+import com.zipcodewilmington.froilansfarm.Animals.Chicken;
+import com.zipcodewilmington.froilansfarm.Containers.Silo;
+import com.zipcodewilmington.froilansfarm.Edibles.Edible;
+import com.zipcodewilmington.froilansfarm.Edibles.EdibleEgg;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class ChickenTest {

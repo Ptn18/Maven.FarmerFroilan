@@ -1,5 +1,10 @@
 package com.zipcodewilmington.froilansfarm;
 
+import com.zipcodewilmington.froilansfarm.Animals.Farmer;
+import com.zipcodewilmington.froilansfarm.Animals.Person;
+import com.zipcodewilmington.froilansfarm.Animals.Pilot;
+import com.zipcodewilmington.froilansfarm.Containers.Container;
+import com.zipcodewilmington.froilansfarm.Containers.FarmHouse;
 import org.junit.Assert;
 import org.junit.Test;
 

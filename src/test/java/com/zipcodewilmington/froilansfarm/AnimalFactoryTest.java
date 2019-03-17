@@ -1,5 +1,6 @@
 package com.zipcodewilmington.froilansfarm;
 
+import com.zipcodewilmington.froilansfarm.Animals.AnimalFactory;
 import org.junit.Assert;
 import org.junit.Test;
 

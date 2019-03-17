@@ -1,10 +1,11 @@
 package com.zipcodewilmington.froilansfarm;
 
+import com.zipcodewilmington.froilansfarm.Containers.Container;
+import com.zipcodewilmington.froilansfarm.Edibles.Crop;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
-import java.util.stream.Stream;
 
 public class FarmFactoryTest {
 
@@ -138,8 +139,8 @@ public class FarmFactoryTest {
 //
 //        //When
 //        FarmFactory.populateFarmhouse(testFarm);
-//        List<Container> farmHouses = testFarm.getSpecificContainers(FarmItems.PERSON);
-//        Container farmhouse = farmHouses.get(0);
+//        List<Containers> farmHouses = testFarm.getSpecificContainers(FarmItems.PERSON);
+//        Containers farmhouse = farmHouses.get(0);
 //        int expected = 2;
 //        int actual = farmhouse.getItems().size();
 //
@@ -155,8 +156,8 @@ public class FarmFactoryTest {
 //
 //        //When
 //        FarmFactory.populateStable(testFarm);
-//        List<Container> stables = testFarm.getSpecificContainers(FarmItems.HORSE);
-//        Container stable = stables.get(0);
+//        List<Containers> stables = testFarm.getSpecificContainers(FarmItems.HORSE);
+//        Containers stable = stables.get(0);
 //        int expected = 4;
 //        int actual = stable.getItems().size();
 //
@@ -172,8 +173,8 @@ public class FarmFactoryTest {
 //
 //        //When
 //        FarmFactory.populateChickenCoop(testFarm);
-//        List<Container> chickenCoops = testFarm.getSpecificContainers(FarmItems.CHICKEN);
-//        Container chickenCoop = chickenCoops.get(0);
+//        List<Containers> chickenCoops = testFarm.getSpecificContainers(FarmItems.CHICKEN);
+//        Containers chickenCoop = chickenCoops.get(0);
 //        int expected = 4;
 //        int actual = chickenCoop.getItems().size();
 //
@@ -189,8 +190,8 @@ public class FarmFactoryTest {
 //
 //        //When
 //        FarmFactory.populateBarn(testFarm);
-//        List<Container> barns = testFarm.getSpecificContainers(FarmItems.VEHICLE);
-//        Container barn = barns.get(0);
+//        List<Containers> barns = testFarm.getSpecificContainers(FarmItems.VEHICLE);
+//        Containers barn = barns.get(0);
 //        int expected = 2;
 //        int actual = barn.getItems().size();
 //

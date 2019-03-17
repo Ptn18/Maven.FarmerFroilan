@@ -1,7 +1,15 @@
 package com.zipcodewilmington.froilansfarm;
 
+import com.zipcodewilmington.froilansfarm.Animals.Farmer;
+import com.zipcodewilmington.froilansfarm.Animals.Horse;
+import com.zipcodewilmington.froilansfarm.Containers.Silo;
+import com.zipcodewilmington.froilansfarm.Containers.Stable;
+import com.zipcodewilmington.froilansfarm.Edibles.Crop;
+import com.zipcodewilmington.froilansfarm.Edibles.Edible;
+import com.zipcodewilmington.froilansfarm.Edibles.PotatoPlant;
+import com.zipcodewilmington.froilansfarm.Vehicles.FarmVehicle;
+import com.zipcodewilmington.froilansfarm.Vehicles.Tractor;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class FarmerTest {

@@ -1,10 +1,16 @@
 package com.zipcodewilmington.froilansfarm;
 
+import com.zipcodewilmington.froilansfarm.Animals.Chicken;
+import com.zipcodewilmington.froilansfarm.Animals.Farmer;
+import com.zipcodewilmington.froilansfarm.Animals.Horse;
+import com.zipcodewilmington.froilansfarm.Animals.Pilot;
+import com.zipcodewilmington.froilansfarm.Containers.Container;
+import com.zipcodewilmington.froilansfarm.Edibles.Crop;
+import com.zipcodewilmington.froilansfarm.Vehicles.Cropduster;
+import com.zipcodewilmington.froilansfarm.Vehicles.Tractor;
+
 import java.util.List;
 import java.util.stream.Stream;
-
-import static com.zipcodewilmington.froilansfarm.AnimalFactory.AnimalType.FARMER;
-import static com.zipcodewilmington.froilansfarm.AnimalFactory.AnimalType.PILOT;
 
 public class FarmFactory {
 
